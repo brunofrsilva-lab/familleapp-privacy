@@ -1,191 +1,208 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Politique de confidentialité — FamilleApp</title>
-<style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
-body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #f9fafb; color: #111827; padding: 24px 16px; max-width: 720px; margin: 0 auto; line-height: 1.7; }
-.header { background: #fff; border-radius: 16px; padding: 28px 24px; margin-bottom: 16px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); text-align: center; }
-.app-icon { font-size: 52px; margin-bottom: 10px; }
-h1 { font-size: 24px; font-weight: 800; margin-bottom: 4px; }
-.subtitle { font-size: 14px; color: #6b7280; margin-bottom: 4px; }
-.date { font-size: 12px; color: #9ca3af; }
-.summary { background: #EAF2FF; border-radius: 14px; padding: 16px 20px; margin-bottom: 16px; border-left: 4px solid #007AFF; }
-.summary h2 { font-size: 14px; font-weight: 700; color: #007AFF; margin-bottom: 8px; }
-.summary ul { padding-left: 16px; }
-.summary li { font-size: 13px; color: #1e40af; margin-bottom: 5px; }
-.section { background: #fff; border-radius: 14px; padding: 20px 22px; margin-bottom: 12px; box-shadow: 0 1px 4px rgba(0,0,0,0.05); }
-.section h2 { font-size: 16px; font-weight: 700; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px solid #f3f4f6; }
-.section h3 { font-size: 14px; font-weight: 600; margin: 14px 0 6px; color: #374151; }
-.section p { font-size: 13px; color: #4b5563; margin-bottom: 8px; }
-.section ul { padding-left: 18px; margin-bottom: 10px; }
-.section li { font-size: 13px; color: #4b5563; margin-bottom: 5px; }
-.badge { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 20px; margin-left: 6px; vertical-align: middle; }
-.local { background: #DCFCE7; color: #166534; }
-.secure { background: #E0F2FE; color: #0369A1; }
-table { width: 100%; border-collapse: collapse; font-size: 12px; margin: 12px 0; }
-th { background: #f3f4f6; padding: 9px 12px; text-align: left; font-weight: 600; color: #374151; }
-td { padding: 9px 12px; border-bottom: 1px solid #f3f4f6; color: #4b5563; vertical-align: top; }
-.highlight { background: #FFF3E0; border-radius: 10px; padding: 12px 14px; margin: 10px 0; border-left: 3px solid #FF9500; }
-.highlight p { font-size: 12px; color: #92400E; margin: 0; }
-.contact-box { background: #f9fafb; border-radius: 12px; padding: 16px 18px; margin-top: 12px; border: 1px solid #e5e7eb; }
-.contact-box p { font-size: 13px; color: #374151; margin-bottom: 6px; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Politique de Confidentialité — FamilleApp</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f9f9f9; color: #1a1a1a; line-height: 1.7; }
+    .container { max-width: 760px; margin: 0 auto; padding: 48px 24px; }
+    .header { text-align: center; margin-bottom: 48px; }
+    .logo { font-size: 56px; margin-bottom: 16px; }
+    h1 { font-size: 28px; font-weight: 700; color: #007AFF; margin-bottom: 8px; }
+    .subtitle { color: #666; font-size: 15px; }
+    .updated { display: inline-block; background: #007AFF15; color: #007AFF; padding: 4px 12px; border-radius: 20px; font-size: 13px; font-weight: 600; margin-top: 8px; }
+    .card { background: #fff; border-radius: 16px; padding: 28px; margin-bottom: 20px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+    h2 { font-size: 18px; font-weight: 700; color: #1a1a1a; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+    h2 .icon { font-size: 22px; }
+    p { color: #444; font-size: 15px; margin-bottom: 12px; }
+    ul { padding-left: 20px; margin-bottom: 12px; }
+    li { color: #444; font-size: 15px; margin-bottom: 8px; }
+    .highlight { background: #007AFF10; border-left: 4px solid #007AFF; padding: 14px 18px; border-radius: 0 10px 10px 0; margin: 16px 0; }
+    .highlight p { color: #007AFF; margin: 0; font-weight: 500; }
+    .tag { display: inline-block; background: #34C75915; color: #34C759; padding: 2px 10px; border-radius: 12px; font-size: 12px; font-weight: 600; margin-left: 8px; }
+    .tag.orange { background: #FF950015; color: #FF9500; }
+    .tag.red { background: #FF3B3015; color: #FF3B30; }
+    a { color: #007AFF; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .footer { text-align: center; margin-top: 48px; padding-top: 24px; border-top: 1px solid #eee; color: #999; font-size: 13px; }
+    table { width: 100%; border-collapse: collapse; margin: 12px 0; }
+    th { background: #f5f5f5; padding: 10px 14px; text-align: left; font-size: 13px; color: #666; font-weight: 600; }
+    td { padding: 10px 14px; border-bottom: 1px solid #f0f0f0; font-size: 14px; color: #444; }
+    tr:last-child td { border-bottom: none; }
+  </style>
 </head>
 <body>
+  <div class="container">
 
-<div class="header">
-  <div class="app-icon">👨‍👩‍👦</div>
-  <h1>FamilleApp</h1>
-  <p class="subtitle">Politique de confidentialité</p>
-  <p class="date">Dernière mise à jour : 10 avril 2026</p>
-</div>
+    <div class="header">
+      <div class="logo">👨‍👩‍👦</div>
+      <h1>Politique de Confidentialité</h1>
+      <p class="subtitle">FamilleApp — Organisez votre famille, simplement</p>
+      <span class="updated">Mise à jour : avril 2026</span>
+    </div>
 
-<div class="summary">
-  <h2>📋 En bref — ce que vous devez savoir</h2>
-  <ul>
-    <li>✅ Toutes vos données familiales restent sur votre téléphone — jamais envoyées à nos serveurs</li>
-    <li>✅ Nous ne vendons aucune donnée à des tiers</li>
-    <li>✅ Les photos de profil sont stockées localement uniquement</li>
-    <li>⚠️ Le scanner IA envoie des photos au fournisseur IA que vous avez choisi (optionnel)</li>
-    <li>✅ Vous pouvez supprimer toutes vos données à tout moment</li>
-  </ul>
-</div>
+    <!-- Résumé -->
+    <div class="card">
+      <h2><span class="icon">💡</span> En résumé</h2>
+      <div class="highlight">
+        <p>FamilleApp collecte uniquement les données nécessaires au fonctionnement de l'application. Vos données ne sont jamais vendues ni partagées avec des tiers à des fins publicitaires.</p>
+      </div>
+      <ul>
+        <li>✅ Pas de publicité</li>
+        <li>✅ Pas de vente de données</li>
+        <li>✅ Données stockées de façon sécurisée (Supabase)</li>
+        <li>✅ Suppression complète disponible depuis l'app</li>
+        <li>✅ Authentification sécurisée via Supabase Auth</li>
+      </ul>
+    </div>
 
-<div class="section">
-  <h2>1. 👤 Qui sommes-nous</h2>
-  <p>FamilleApp est une application mobile indépendante conçue pour aider les familles à organiser leur vie quotidienne : agenda partagé, repas de la semaine, liste de courses, congés, tâches et contacts importants.</p>
-  <p>Cette politique explique quelles données FamilleApp utilise et comment elles sont protégées.</p>
-  <p>Contact : <strong>familleapp.contact@gmail.com</strong></p>
-</div>
+    <!-- Qui sommes-nous -->
+    <div class="card">
+      <h2><span class="icon">👤</span> Responsable du traitement</h2>
+      <p><strong>FamilleApp</strong> est développée et maintenue par Bruno Silva, développeur indépendant basé en Suisse.</p>
+      <p>Contact : <a href="mailto:Creator_apps@protonmail.com">Creator_apps@protonmail.com</a></p>
+    </div>
 
-<div class="section">
-  <h2>2. 📊 Données collectées</h2>
-  <h3>2.1 Données stockées localement sur votre appareil</h3>
-  <p>Toutes les données ci-dessous sont stockées <strong>uniquement sur votre téléphone</strong>. Elles ne sont jamais transmises aux serveurs de FamilleApp.</p>
-  <table>
-    <tr><th>Donnée</th><th>Utilisation</th><th>Stockage</th></tr>
-    <tr><td>Prénoms des membres</td><td>Identification des profils familiaux</td><td><span class="badge local">Local</span></td></tr>
-    <tr><td>Photos de profil</td><td>Personnalisation des avatars</td><td><span class="badge local">Local</span></td></tr>
-    <tr><td>Mots de passe (hashés)</td><td>Connexion sécurisée aux profils</td><td><span class="badge secure">SecureStore</span></td></tr>
-    <tr><td>Rendez-vous et dates</td><td>Calendrier familial partagé</td><td><span class="badge local">Local</span></td></tr>
-    <tr><td>Liste de courses</td><td>Planification des achats</td><td><span class="badge local">Local</span></td></tr>
-    <tr><td>Menu de la semaine</td><td>Planification des repas</td><td><span class="badge local">Local</span></td></tr>
-    <tr><td>Congés et vacances</td><td>Suivi des absences familiales</td><td><span class="badge local">Local</span></td></tr>
-    <tr><td>Tâches familiales</td><td>Liste de choses à faire</td><td><span class="badge local">Local</span></td></tr>
-    <tr><td>Contacts importants</td><td>Répertoire famille (médecin, école…)</td><td><span class="badge local">Local</span></td></tr>
-    <tr><td>Clé API IA (optionnel)</td><td>Activation du scanner de planning</td><td><span class="badge secure">SecureStore</span></td></tr>
-  </table>
+    <!-- Données collectées -->
+    <div class="card">
+      <h2><span class="icon">📋</span> Données collectées</h2>
+      <p>Voici les données que FamilleApp collecte et utilise :</p>
 
-  <h3>2.2 Données transmises à des tiers (uniquement si vous activez le scanner IA)</h3>
-  <p>La fonctionnalité Scanner IA est <strong>entièrement optionnelle</strong>. Si vous la configurez :</p>
-  <ul>
-    <li>La photo de votre planning est envoyée directement au fournisseur IA que vous avez choisi (Claude / Anthropic, Gemini / Google, OpenAI, ou un service personnalisé)</li>
-    <li>FamilleApp ne stocke ni n'intercepte ces photos</li>
-    <li>Ces données sont soumises à la politique de confidentialité du fournisseur IA choisi</li>
-  </ul>
-  <div class="highlight">
-    <p>⚠️ FamilleApp ne collecte aucune donnée analytique, telemetrie, identifiant publicitaire, ni localisation GPS. Aucun SDK de tracking tiers n'est intégré.</p>
+      <table>
+        <tr>
+          <th>Donnée</th>
+          <th>Usage</th>
+          <th>Obligatoire</th>
+        </tr>
+        <tr>
+          <td>Adresse email</td>
+          <td>Authentification du compte</td>
+          <td><span class="tag red">Oui</span></td>
+        </tr>
+        <tr>
+          <td>Prénom</td>
+          <td>Personnalisation du profil</td>
+          <td><span class="tag red">Oui</span></td>
+        </tr>
+        <tr>
+          <td>Mot de passe</td>
+          <td>Sécurité du compte (chiffré par Supabase)</td>
+          <td><span class="tag red">Oui</span></td>
+        </tr>
+        <tr>
+          <td>Photo de profil</td>
+          <td>Personnalisation (stockée sur Supabase Storage)</td>
+          <td><span class="tag orange">Non</span></td>
+        </tr>
+        <tr>
+          <td>Agenda & rendez-vous</td>
+          <td>Fonctionnalité calendrier familial</td>
+          <td><span class="tag orange">Non</span></td>
+        </tr>
+        <tr>
+          <td>Tâches & courses</td>
+          <td>Fonctionnalités de gestion quotidienne</td>
+          <td><span class="tag orange">Non</span></td>
+        </tr>
+        <tr>
+          <td>Statuts de trajet</td>
+          <td>Bien arrivé — maison/école/travail uniquement</td>
+          <td><span class="tag orange">Non</span></td>
+        </tr>
+        <tr>
+          <td>Données animaux & repas</td>
+          <td>Fonctionnalités de l'app</td>
+          <td><span class="tag orange">Non</span></td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- Authentification -->
+    <div class="card">
+      <h2><span class="icon">🔐</span> Authentification</h2>
+      <p>FamilleApp utilise <strong>Supabase Auth</strong> pour sécuriser votre compte. Cela signifie que :</p>
+      <ul>
+        <li>Votre mot de passe n'est <strong>jamais stocké en clair</strong> — il est chiffré par Supabase</li>
+        <li>Votre email est utilisé <strong>uniquement pour l'authentification</strong></li>
+        <li>Les sessions sont gérées de façon sécurisée sur votre appareil</li>
+        <li>Chaque famille dispose d'un espace de données <strong>strictement isolé</strong></li>
+      </ul>
+      <div class="highlight">
+        <p>Les politiques de sécurité (Row Level Security) garantissent qu'aucun utilisateur ne peut accéder aux données d'une autre famille, même avec l'URL de la base de données.</p>
+      </div>
+    </div>
+
+    <!-- Stockage -->
+    <div class="card">
+      <h2><span class="icon">🗄️</span> Où sont stockées vos données ?</h2>
+      <p>Vos données sont hébergées sur <strong>Supabase</strong> (infrastructure PostgreSQL), dont les serveurs sont situés dans l'Union Européenne (région <code>eu-west</code>).</p>
+      <p>Supabase est conforme au RGPD. Pour plus d'informations : <a href="https://supabase.com/privacy" target="_blank">supabase.com/privacy</a></p>
+      <p>Les photos de profil sont stockées dans un espace sécurisé <strong>Supabase Storage</strong>.</p>
+    </div>
+
+    <!-- Partage -->
+    <div class="card">
+      <h2><span class="icon">🚫</span> Partage des données</h2>
+      <p>FamilleApp <strong>ne partage jamais</strong> vos données personnelles avec des tiers, sauf :</p>
+      <ul>
+        <li><strong>Supabase</strong> — notre prestataire de base de données (sous contrat de confidentialité)</li>
+        <li><strong>Fournisseurs IA (optionnel)</strong> — si vous utilisez le Co-pilote Lumina, vos données de planning (pas votre email) sont envoyées au fournisseur IA que vous avez choisi (Google Gemini, OpenAI ou Anthropic Claude). Vos clés API restent sur votre téléphone.</li>
+        <li><strong>Obligations légales</strong> — si requis par la loi</li>
+      </ul>
+    </div>
+
+    <!-- Notifications -->
+    <div class="card">
+      <h2><span class="icon">🔔</span> Notifications</h2>
+      <p>FamilleApp peut envoyer des notifications push locales pour :</p>
+      <ul>
+        <li>Rappels de rendez-vous et congés</li>
+        <li>Validation de tâches</li>
+        <li>Anniversaires</li>
+        <li>Statuts de trajet des membres</li>
+      </ul>
+      <p>Ces notifications sont <strong>générées localement sur votre appareil</strong> et ne passent pas par nos serveurs. Vous pouvez les désactiver dans les Réglages de l'application.</p>
+    </div>
+
+    <!-- Droits -->
+    <div class="card">
+      <h2><span class="icon">⚖️</span> Vos droits (RGPD)</h2>
+      <p>Conformément au Règlement Général sur la Protection des Données, vous disposez des droits suivants :</p>
+      <ul>
+        <li><strong>Droit d'accès</strong> — voir toutes vos données dans l'application</li>
+        <li><strong>Droit de rectification</strong> — modifier vos données dans Réglages → Ma Famille</li>
+        <li><strong>Droit à l'effacement</strong> — supprimer votre compte depuis Réglages → Supprimer mon profil</li>
+        <li><strong>Droit à la portabilité</strong> — contactez-nous pour exporter vos données</li>
+        <li><strong>Droit d'opposition</strong> — contactez-nous à <a href="mailto:Creator_apps@protonmail.com">Creator_apps@protonmail.com</a></li>
+      </ul>
+      <div class="highlight">
+        <p>La suppression de compte depuis l'application efface immédiatement toutes vos données personnelles et, si vous êtes le dernier membre, toutes les données de la famille.</p>
+      </div>
+    </div>
+
+    <!-- Mineurs -->
+    <div class="card">
+      <h2><span class="icon">👶</span> Données des mineurs</h2>
+      <p>FamilleApp est destinée aux familles. Les profils enfants sont créés et gérés par les parents (rôle "Parent") au sein de l'application. Aucun email n'est requis pour les profils enfants.</p>
+      <p>Nous ne collectons pas sciemment de données personnelles d'enfants de moins de 13 ans de façon directe.</p>
+    </div>
+
+    <!-- Contact -->
+    <div class="card">
+      <h2><span class="icon">📬</span> Nous contacter</h2>
+      <p>Pour toute question concernant cette politique de confidentialité ou vos données personnelles :</p>
+      <p>📧 <a href="mailto:Creator_apps@protonmail.com">Creator_apps@protonmail.com</a></p>
+      <p>Nous nous engageons à répondre dans un délai de 30 jours.</p>
+    </div>
+
+    <div class="footer">
+      <p>© 2026 FamilleApp — Bruno Silva</p>
+      <p style="margin-top: 8px;">Cette politique peut être mise à jour. La date de dernière modification est indiquée en haut de cette page.</p>
+      <p style="margin-top: 8px;"><a href="https://brunofrsilva-lab.github.io/familleapp-privacy/privacy-policy.html">Version en ligne</a></p>
+    </div>
+
   </div>
-</div>
-
-<div class="section">
-  <h2>3. 🔐 Permissions Android utilisées</h2>
-  <table>
-    <tr><th>Permission</th><th>Pourquoi</th><th>Obligatoire ?</th></tr>
-    <tr>
-      <td><strong>Galerie photos</strong><br><small>READ_MEDIA_IMAGES</small></td>
-      <td>Choisir une photo de profil pour les membres de la famille. Choisir une photo de planning pour le scanner IA.</td>
-      <td>Non — l'app fonctionne sans</td>
-    </tr>
-    <tr>
-      <td><strong>Notifications</strong><br><small>POST_NOTIFICATIONS</small></td>
-      <td>Rappels de rendez-vous, anniversaires, début de vacances, articles de courses achetés.</td>
-      <td>Non — désactivable dans Réglages</td>
-    </tr>
-    <tr>
-      <td><strong>Stockage sécurisé</strong><br><small>Android Keystore</small></td>
-      <td>Protège les mots de passe et la clé API via le chiffrement Android natif.</td>
-      <td>Automatique (système Android)</td>
-    </tr>
-  </table>
-  <p>FamilleApp n'accède pas à votre microphone, caméra, localisation GPS, contacts téléphoniques, SMS ou historique d'appels.</p>
-</div>
-
-<div class="section">
-  <h2>4. 🔔 Notifications</h2>
-  <p>FamilleApp utilise uniquement des <strong>notifications locales</strong> programmées sur votre appareil. Aucun serveur de push n'est utilisé.</p>
-  <ul>
-    <li>Rappels de rendez-vous : la veille et 2h avant l'heure prévue</li>
-    <li>Début de vacances ou congés : le matin du premier jour</li>
-    <li>Anniversaires : jusqu'à 7 jours à l'avance et le jour J</li>
-    <li>Articles de courses achetés par un membre de la famille</li>
-    <li>Tâches avec date d'échéance : le jour prévu</li>
-  </ul>
-  <p>Vous pouvez désactiver les notifications dans <strong>⚙️ Réglages → Notifications</strong>, ou dans les paramètres système Android.</p>
-</div>
-
-<div class="section">
-  <h2>5. 🔒 Sécurité</h2>
-  <ul>
-    <li><strong>Mots de passe hashés SHA-256</strong> : jamais stockés en clair, toujours chiffrés avec un sel unique</li>
-    <li><strong>Android SecureStore / Keystore</strong> : les données sensibles utilisent le chiffrement natif Android, le plus sécurisé disponible</li>
-    <li><strong>Aucune transmission réseau</strong> des données familiales : tout reste sur l'appareil</li>
-    <li><strong>Clé API chiffrée</strong> : si vous configurez une clé API IA, elle est stockée chiffrée et n'apparaît jamais dans les logs</li>
-    <li><strong>Pas de compte obligatoire</strong> : FamilleApp fonctionne entièrement hors ligne, sans création de compte</li>
-  </ul>
-</div>
-
-<div class="section">
-  <h2>6. 👶 Données des mineurs</h2>
-  <p>FamilleApp est destinée aux adultes (parents ou tuteurs légaux). Les profils enfants :</p>
-  <ul>
-    <li>Sont créés et gérés par les parents, sous leur responsabilité</li>
-    <li>Contiennent uniquement un prénom, un emoji et une couleur de personnalisation</li>
-    <li>Ne permettent pas à l'enfant de se connecter de façon autonome (pas de mot de passe enfant)</li>
-    <li>Ne font l'objet d'aucune collecte de données par FamilleApp</li>
-  </ul>
-  <p>FamilleApp ne collecte pas sciemment de données personnelles d'enfants de moins de 13 ans.</p>
-</div>
-
-<div class="section">
-  <h2>7. ⚖️ Vos droits (RGPD)</h2>
-  <h3>Accès et rectification</h3>
-  <p>Toutes vos données sont visibles et modifiables directement dans <strong>⚙️ Réglages → Membres de la famille</strong>.</p>
-  <h3>Effacement</h3>
-  <p>Deux méthodes pour supprimer toutes vos données :</p>
-  <ul>
-    <li>Sur Android : Paramètres → Applications → FamilleApp → Effacer les données</li>
-    <li>Désinstaller l'application supprime automatiquement toutes les données locales</li>
-  </ul>
-  <h3>Portabilité</h3>
-  <p>Vos données étant stockées localement, elles vous appartiennent entièrement et ne nécessitent aucune extraction depuis un serveur.</p>
-  <h3>Opposition</h3>
-  <p>Vous pouvez désactiver à tout moment les notifications, le scanner IA ou toute fonctionnalité optionnelle dans les Réglages de l'application.</p>
-</div>
-
-<div class="section">
-  <h2>8. 📝 Modifications</h2>
-  <p>En cas de modification significative de cette politique :</p>
-  <ul>
-    <li>La date "Dernière mise à jour" sera modifiée en haut de cette page</li>
-    <li>Une notification dans l'application vous informera du changement</li>
-    <li>L'utilisation continue de FamilleApp après modification vaut acceptation</li>
-  </ul>
-</div>
-
-<div class="section">
-  <h2>9. 📬 Contact</h2>
-  <div class="contact-box">
-    <p>📧 <strong>Email :</strong> Creator_apps@protonmail.com</p>
-    <p>🌐 <strong>Site :</strong> https://brunofrsilva-lab.github.io/familleapp-privacy/privacy-policy.html</p>
-    <p>📍 <strong>Pays :</strong> Suisse</p>
-    <p style="margin-top:10px;font-size:12px;color:#9ca3af;">Délai de réponse : 30 jours ouvrés maximum.</p>
-  </div>
-  <p style="margin-top:14px;font-size:12px;color:#9ca3af;">Cette politique est conforme au RGPD (Règlement Général sur la Protection des Données, UE 2016/679) et aux exigences du Google Play Store.</p>
-</div>
-
 </body>
 </html>
