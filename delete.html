@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Supprimer mon compte — FamilleApp</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg: #F2F2F7;
+      --surface: #FFFFFF;
+      --accent: #007AFF;
+      --danger: #FF3B30;
+      --danger-soft: #FFF0EF;
+      --success: #34C759;
+      --success-soft: #E9F8EE;
+      --text: #000000;
+      --text-sec: #6D6D72;
+      --text-ter: #AEAEB2;
+      --border: #E5E5EA;
+      --shadow: 0 4px 24px rgba(0,0,0,0.07);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      padding: 0;
+    }
+
+    /* Header */
+    .header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 20px 24px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #007AFF, #5856D6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .header-text h1 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 20px;
+      font-weight: 400;
+      letter-spacing: -0.3px;
+    }
+
+    .header-text p {
+      font-size: 12px;
+      color: var(--text-sec);
+      margin-top: 1px;
+    }
+
+    /* Main content */
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 32px 20px 60px;
+    }
+
+    /* Hero */
+    .hero {
+      background: var(--surface);
+      border-radius: 22px;
+      padding: 32px 28px;
+      margin-bottom: 16px;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .hero-icon {
+      width: 72px;
+      height: 72px;
+      border-radius: 20px;
+      background: var(--danger-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 34px;
+      margin: 0 auto 20px;
+    }
+
+    .hero h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 26px;
+      font-weight: 400;
+      letter-spacing: -0.5px;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 15px;
+      color: var(--text-sec);
+      line-height: 1.6;
+    }
+
+    /* Info card */
+    .card {
+      background: var(--surface);
+      border-radius: 18px;
+      padding: 22px 22px;
+      margin-bottom: 14px;
+      box-shadow: var(--shadow);
+    }
+
+    .card-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      color: var(--text-ter);
+      margin-bottom: 14px;
+    }
+
+    /* Option 1 — In-app */
+    .option {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .option:last-child { border-bottom: none; padding-bottom: 0; }
+    .option:first-of-type { padding-top: 0; }
+
+    .option-num {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: white;
+      font-size: 14px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .option-body h3 {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .option-body p {
+      font-size: 13px;
+      color: var(--text-sec);
+      line-height: 1.5;
+    }
+
+    .option-body code {
+      background: var(--bg);
+      border-radius: 6px;
+      padding: 2px 7px;
+      font-size: 12px;
+      color: var(--accent);
+      font-family: monospace;
+    }
+
+    /* Data list */
+    .data-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 11px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+    }
+
+    .data-row:last-child { border-bottom: none; }
+
+    .data-icon {
+      font-size: 18px;
+      width: 28px;
+      text-align: center;
+    }
+
+    .data-label { flex: 1; color: var(--text); }
+
+    .badge {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 9px;
+      border-radius: 20px;
+    }
+
+    .badge-red { background: var(--danger-soft); color: var(--danger); }
+    .badge-green { background: var(--success-soft); color: var(--success); }
+
+    /* Email form */
+    .form-group {
+      margin-bottom: 14px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.7px;
+      text-transform: uppercase;
+      color: var(--text-ter);
+      margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 13px 16px;
+      border-radius: 12px;
+      border: 1.5px solid var(--border);
+      font-size: 15px;
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--accent);
+      background: white;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 90px;
+    }
+
+    .btn-danger {
+      width: 100%;
+      padding: 16px;
+      border-radius: 14px;
+      background: var(--danger);
+      color: white;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.1s;
+      margin-top: 4px;
+    }
+
+    .btn-danger:hover { opacity: 0.9; }
+    .btn-danger:active { transform: scale(0.98); }
+
+    /* Success state */
+    .success-msg {
+      display: none;
+      background: var(--success-soft);
+      border-radius: 14px;
+      padding: 20px;
+      text-align: center;
+      margin-top: 14px;
+    }
+
+    .success-msg.show { display: block; }
+
+    .success-msg p {
+      color: var(--success);
+      font-weight: 600;
+      font-size: 15px;
+    }
+
+    /* Warning box */
+    .warning-box {
+      background: #FFF3E0;
+      border-radius: 12px;
+      padding: 14px 16px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      margin-bottom: 16px;
+    }
+
+    .warning-box p {
+      font-size: 13px;
+      color: #795548;
+      line-height: 1.5;
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+    }
+
+    .footer p {
+      font-size: 12px;
+      color: var(--text-ter);
+      line-height: 1.7;
+    }
+
+    .footer a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    /* Anchor for Google Play link */
+    #delete-account { scroll-margin-top: 80px; }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="logo">🏠</div>
+    <div class="header-text">
+      <h1>FamilleApp</h1>
+      <p>by Braquelapps</p>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <!-- Hero -->
+    <div class="hero" id="delete-account">
+      <div class="hero-icon">🗑️</div>
+      <h2>Supprimer mon compte</h2>
+      <p>Vous pouvez supprimer votre compte et toutes vos données à tout moment, directement depuis l'app ou en nous contactant par email.</p>
+    </div>
+
+    <!-- Option 1 — In-app -->
+    <div class="card">
+      <div class="card-title">Méthode recommandée</div>
+
+      <div class="option">
+        <div class="option-num">1</div>
+        <div class="option-body">
+          <h3>Ouvrez FamilleApp</h3>
+          <p>Lancez l'application sur votre téléphone.</p>
+        </div>
+      </div>
+
+      <div class="option">
+        <div class="option-num">2</div>
+        <div class="option-body">
+          <h3>Allez dans Réglages</h3>
+          <p>Appuyez sur l'onglet <code>⚙️ Réglages</code> en bas de l'écran.</p>
+        </div>
+      </div>
+
+      <div class="option">
+        <div class="option-num">3</div>
+        <div class="option-body">
+          <h3>Supprimez votre profil</h3>
+          <p>Faites défiler jusqu'en bas et appuyez sur <code>❌ Supprimer mon profil et mes données</code>. La suppression est immédiate et définitive.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Data deleted -->
+    <div class="card">
+      <div class="card-title">Données supprimées</div>
+
+      <div class="data-row">
+        <div class="data-icon">👤</div>
+        <div class="data-label">Profil et informations personnelles</div>
+        <span class="badge badge-red">Supprimé</span>
+      </div>
+      <div class="data-row">
+        <div class="data-icon">📅</div>
+        <div class="data-label">Agenda, rendez-vous, congés</div>
+        <span class="badge badge-red">Supprimé</span>
+      </div>
+      <div class="data-row">
+        <div class="data-icon">✅</div>
+        <div class="data-label">Tâches et listes de courses</div>
+        <span class="badge badge-red">Supprimé</span>
+      </div>
+      <div class="data-row">
+        <div class="data-icon">🏆</div>
+        <div class="data-label">Points et récompenses</div>
+        <span class="badge badge-red">Supprimé</span>
+      </div>
+      <div class="data-row">
+        <div class="data-icon">📷</div>
+        <div class="data-label">Photo de profil</div>
+        <span class="badge badge-red">Supprimé</span>
+      </div>
+      <div class="data-row">
+        <div class="data-icon">🔐</div>
+        <div class="data-label">Compte email et mot de passe</div>
+        <span class="badge badge-red">Supprimé</span>
+      </div>
+      <div class="data-row">
+        <div class="data-icon">👨‍👩‍👦</div>
+        <div class="data-label">Données des autres membres (si dernier membre : famille entière supprimée)</div>
+        <span class="badge badge-green">Conservé</span>
+      </div>
+    </div>
+
+    <!-- Email form -->
+    <div class="card">
+      <div class="card-title">Demande par email</div>
+
+      <div class="warning-box">
+        <span>⚠️</span>
+        <p>Si vous ne pouvez pas accéder à l'application, envoyez une demande par email. Nous traitons les demandes sous <strong>72 heures</strong>.</p>
+      </div>
+
+      <div class="form-group">
+        <label>Votre adresse email</label>
+        <input type="email" id="email-input" placeholder="email@exemple.com"/>
+      </div>
+
+      <div class="form-group">
+        <label>Votre prénom dans l'app</label>
+        <input type="text" id="name-input" placeholder="Ex: Bruno"/>
+      </div>
+
+      <div class="form-group">
+        <label>Motif (optionnel)</label>
+        <textarea id="reason-input" placeholder="Je souhaite supprimer mon compte car…"></textarea>
+      </div>
+
+      <button class="btn-danger" onclick="submitRequest()">
+        🗑️ Envoyer la demande de suppression
+      </button>
+
+      <div class="success-msg" id="success-msg">
+        <p>✅ Demande envoyée avec succès !<br/>
+        Nous vous confirmerons la suppression sous 72h à l'adresse indiquée.</p>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <p>
+        FamilleApp — BraquelapPS · Suisse<br/>
+        <a href="mailto:Creator_apps@protonmail.com">Creator_apps@protonmail.com</a><br/><br/>
+        <a href="./index.html">← Politique de confidentialité</a>
+      </p>
+    </div>
+
+  </div>
+
+  <script>
+    function submitRequest() {
+      const email  = document.getElementById('email-input').value.trim();
+      const name   = document.getElementById('name-input').value.trim();
+      const reason = document.getElementById('reason-input').value.trim();
+
+      if (!email || !email.includes('@')) {
+        alert('Veuillez entrer une adresse email valide.');
+        return;
+      }
+      if (!name) {
+        alert('Veuillez entrer votre prénom.');
+        return;
+      }
+
+      // Ouvre le client email avec les infos pré-remplies
+      const subject = encodeURIComponent('Demande de suppression de compte — FamilleApp');
+      const body = encodeURIComponent(
+        `Bonjour,\n\nJe souhaite supprimer mon compte FamilleApp.\n\nEmail : ${email}\nPrénom : ${name}\n${reason ? 'Motif : ' + reason + '\n' : ''}\nCordialement.`
+      );
+      window.location.href = `mailto:Creator_apps@protonmail.com?subject=${subject}&body=${body}`;
+
+      // Afficher le message de succès
+      setTimeout(() => {
+        document.getElementById('success-msg').classList.add('show');
+      }, 500);
+    }
+  </script>
+
+</body>
+</html>
