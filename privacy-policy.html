@@ -5,204 +5,319 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Politique de Confidentialité — FamilleApp</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f9f9f9; color: #1a1a1a; line-height: 1.7; }
-    .container { max-width: 760px; margin: 0 auto; padding: 48px 24px; }
-    .header { text-align: center; margin-bottom: 48px; }
-    .logo { font-size: 56px; margin-bottom: 16px; }
-    h1 { font-size: 28px; font-weight: 700; color: #007AFF; margin-bottom: 8px; }
-    .subtitle { color: #666; font-size: 15px; }
-    .updated { display: inline-block; background: #007AFF15; color: #007AFF; padding: 4px 12px; border-radius: 20px; font-size: 13px; font-weight: 600; margin-top: 8px; }
-    .card { background: #fff; border-radius: 16px; padding: 28px; margin-bottom: 20px; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
-    h2 { font-size: 18px; font-weight: 700; color: #1a1a1a; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
-    h2 .icon { font-size: 22px; }
-    p { color: #444; font-size: 15px; margin-bottom: 12px; }
-    ul { padding-left: 20px; margin-bottom: 12px; }
-    li { color: #444; font-size: 15px; margin-bottom: 8px; }
-    .highlight { background: #007AFF10; border-left: 4px solid #007AFF; padding: 14px 18px; border-radius: 0 10px 10px 0; margin: 16px 0; }
-    .highlight p { color: #007AFF; margin: 0; font-weight: 500; }
-    .tag { display: inline-block; background: #34C75915; color: #34C759; padding: 2px 10px; border-radius: 12px; font-size: 12px; font-weight: 600; margin-left: 8px; }
-    .tag.orange { background: #FF950015; color: #FF9500; }
-    .tag.red { background: #FF3B3015; color: #FF3B30; }
-    a { color: #007AFF; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .footer { text-align: center; margin-top: 48px; padding-top: 24px; border-top: 1px solid #eee; color: #999; font-size: 13px; }
-    table { width: 100%; border-collapse: collapse; margin: 12px 0; }
-    th { background: #f5f5f5; padding: 10px 14px; text-align: left; font-size: 13px; color: #666; font-weight: 600; }
-    td { padding: 10px 14px; border-bottom: 1px solid #f0f0f0; font-size: 14px; color: #444; }
-    tr:last-child td { border-bottom: none; }
+    :root {
+      --blue: #007AFF;
+      --bg: #F2F0ED;
+      --surface: #FFFFFF;
+      --text: #1a1a1a;
+      --text2: #555;
+      --border: #e0ddd8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      padding: 20px;
+    }
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    header {
+      text-align: center;
+      padding: 40px 0 32px;
+    }
+    .logo {
+      font-size: 48px;
+      margin-bottom: 12px;
+    }
+    h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--blue);
+      margin-bottom: 6px;
+    }
+    .subtitle {
+      color: var(--text2);
+      font-size: 14px;
+    }
+    .card {
+      background: var(--surface);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 16px;
+      border: 1px solid var(--border);
+    }
+    h2 {
+      font-size: 17px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--blue);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    h3 {
+      font-size: 15px;
+      font-weight: 600;
+      margin: 16px 0 6px;
+      color: var(--text);
+    }
+    p {
+      font-size: 14px;
+      color: var(--text2);
+      margin-bottom: 10px;
+    }
+    ul {
+      padding-left: 20px;
+      margin-bottom: 10px;
+    }
+    li {
+      font-size: 14px;
+      color: var(--text2);
+      margin-bottom: 4px;
+    }
+    .badge {
+      display: inline-block;
+      background: #e8f2ff;
+      color: var(--blue);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 20px;
+      margin-bottom: 8px;
+    }
+    .highlight {
+      background: #f0f7ff;
+      border-left: 3px solid var(--blue);
+      padding: 12px 16px;
+      border-radius: 0 8px 8px 0;
+      margin: 10px 0;
+      font-size: 14px;
+      color: var(--text2);
+    }
+    footer {
+      text-align: center;
+      padding: 32px 0;
+      font-size: 13px;
+      color: var(--text2);
+    }
+    a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+    .contact-box {
+      background: #f0f7ff;
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+      margin-top: 8px;
+    }
+    .contact-box a {
+      font-weight: 600;
+      font-size: 15px;
+    }
+    .version-tag {
+      background: var(--blue);
+      color: white;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 20px;
+      display: inline-block;
+      margin-bottom: 16px;
+    }
   </style>
 </head>
 <body>
-  <div class="container">
+<div class="container">
 
-    <div class="header">
-      <div class="logo">👨‍👩‍👦</div>
-      <h1>Politique de Confidentialité</h1>
-      <p class="subtitle">FamilleApp — Organisez votre famille, simplement</p>
-      <span class="updated">Mise à jour : avril 2026</span>
+  <header>
+    <div class="logo">🏠</div>
+    <h1>Politique de Confidentialité</h1>
+    <p class="subtitle">FamilleApp — BraquelApps</p>
+    <br>
+    <span class="version-tag">Version 1.2 — Mai 2026</span>
+  </header>
+
+  <div class="card">
+    <h2>👋 Introduction</h2>
+    <p>Bienvenue sur FamilleApp. Cette politique explique comment nous collectons, utilisons et protégeons vos données personnelles lorsque vous utilisez notre application.</p>
+    <p>En utilisant FamilleApp, vous acceptez les pratiques décrites dans ce document. Si vous n'acceptez pas ces conditions, veuillez ne pas utiliser l'application.</p>
+    <div class="highlight">
+      <strong>Responsable du traitement :</strong> Bruno Filipe Rocha e Silva (BraquelApps)<br>
+      <strong>Contact :</strong> Creator_apps@protonmail.com<br>
+      <strong>Pays :</strong> Suisse
     </div>
-
-    <!-- Résumé -->
-    <div class="card">
-      <h2><span class="icon">💡</span> En résumé</h2>
-      <div class="highlight">
-        <p>FamilleApp collecte uniquement les données nécessaires au fonctionnement de l'application. Vos données ne sont jamais vendues ni partagées avec des tiers à des fins publicitaires.</p>
-      </div>
-      <ul>
-        <li>✅ Pas de publicité</li>
-        <li>✅ Pas de vente de données</li>
-        <li>✅ Données stockées de façon sécurisée (Supabase)</li>
-        <li>✅ Suppression complète disponible depuis l'app</li>
-        <li>✅ Authentification sécurisée via Supabase Auth</li>
-      </ul>
-    </div>
-
-    <!-- Qui sommes-nous -->
-    <div class="card">
-      <h2><span class="icon">👤</span> Responsable du traitement</h2>
-      <p><strong>FamilleApp</strong> est développée et maintenue par Bruno Silva, développeur indépendant basé en Suisse.</p>
-      <p>Contact : <a href="mailto:Creator_apps@protonmail.com">Creator_apps@protonmail.com</a></p>
-    </div>
-
-    <!-- Données collectées -->
-    <div class="card">
-      <h2><span class="icon">📋</span> Données collectées</h2>
-      <p>Voici les données que FamilleApp collecte et utilise :</p>
-
-      <table>
-        <tr>
-          <th>Donnée</th>
-          <th>Usage</th>
-          <th>Obligatoire</th>
-        </tr>
-        <tr>
-          <td>Adresse email</td>
-          <td>Authentification du compte</td>
-          <td><span class="tag red">Oui</span></td>
-        </tr>
-        <tr>
-          <td>Prénom</td>
-          <td>Personnalisation du profil</td>
-          <td><span class="tag red">Oui</span></td>
-        </tr>
-        <tr>
-          <td>Mot de passe</td>
-          <td>Sécurité du compte (chiffré par Supabase)</td>
-          <td><span class="tag red">Oui</span></td>
-        </tr>
-        <tr>
-          <td>Photo de profil</td>
-          <td>Personnalisation (stockée sur Supabase Storage)</td>
-          <td><span class="tag orange">Non</span></td>
-        </tr>
-        <tr>
-          <td>Agenda & rendez-vous</td>
-          <td>Fonctionnalité calendrier familial</td>
-          <td><span class="tag orange">Non</span></td>
-        </tr>
-        <tr>
-          <td>Tâches & courses</td>
-          <td>Fonctionnalités de gestion quotidienne</td>
-          <td><span class="tag orange">Non</span></td>
-        </tr>
-        <tr>
-          <td>Statuts de trajet</td>
-          <td>Bien arrivé — maison/école/travail uniquement</td>
-          <td><span class="tag orange">Non</span></td>
-        </tr>
-        <tr>
-          <td>Données animaux & repas</td>
-          <td>Fonctionnalités de l'app</td>
-          <td><span class="tag orange">Non</span></td>
-        </tr>
-      </table>
-    </div>
-
-    <!-- Authentification -->
-    <div class="card">
-      <h2><span class="icon">🔐</span> Authentification</h2>
-      <p>FamilleApp utilise <strong>Supabase Auth</strong> pour sécuriser votre compte. Cela signifie que :</p>
-      <ul>
-        <li>Votre mot de passe n'est <strong>jamais stocké en clair</strong> — il est chiffré par Supabase</li>
-        <li>Votre email est utilisé <strong>uniquement pour l'authentification</strong></li>
-        <li>Les sessions sont gérées de façon sécurisée sur votre appareil</li>
-        <li>Chaque famille dispose d'un espace de données <strong>strictement isolé</strong></li>
-      </ul>
-      <div class="highlight">
-        <p>Les politiques de sécurité (Row Level Security) garantissent qu'aucun utilisateur ne peut accéder aux données d'une autre famille, même avec l'URL de la base de données.</p>
-      </div>
-    </div>
-
-    <!-- Stockage -->
-    <div class="card">
-      <h2><span class="icon">🗄️</span> Où sont stockées vos données ?</h2>
-      <p>Vos données sont hébergées sur <strong>Supabase</strong> (infrastructure PostgreSQL), dont les serveurs sont situés dans l'Union Européenne (région <code>eu-west</code>).</p>
-      <p>Supabase est conforme au RGPD. Pour plus d'informations : <a href="https://supabase.com/privacy" target="_blank">supabase.com/privacy</a></p>
-      <p>Les photos de profil sont stockées dans un espace sécurisé <strong>Supabase Storage</strong>.</p>
-    </div>
-
-    <!-- Partage -->
-    <div class="card">
-      <h2><span class="icon">🚫</span> Partage des données</h2>
-      <p>FamilleApp <strong>ne partage jamais</strong> vos données personnelles avec des tiers, sauf :</p>
-      <ul>
-        <li><strong>Supabase</strong> — notre prestataire de base de données (sous contrat de confidentialité)</li>
-        <li><strong>Fournisseurs IA (optionnel)</strong> — si vous utilisez le Co-pilote Lumina, vos données de planning (pas votre email) sont envoyées au fournisseur IA que vous avez choisi (Google Gemini, OpenAI ou Anthropic Claude). Vos clés API restent sur votre téléphone.</li>
-        <li><strong>Obligations légales</strong> — si requis par la loi</li>
-      </ul>
-    </div>
-
-    <!-- Notifications -->
-    <div class="card">
-      <h2><span class="icon">🔔</span> Notifications</h2>
-      <p>FamilleApp peut envoyer des notifications push locales pour :</p>
-      <ul>
-        <li>Rappels de rendez-vous et congés</li>
-        <li>Validation de tâches</li>
-        <li>Anniversaires</li>
-        <li>Statuts de trajet des membres</li>
-      </ul>
-      <p>Ces notifications sont <strong>générées localement sur votre appareil</strong> et ne passent pas par nos serveurs. Vous pouvez les désactiver dans les Réglages de l'application.</p>
-    </div>
-
-    <!-- Droits -->
-    <div class="card">
-      <h2><span class="icon">⚖️</span> Vos droits (RGPD)</h2>
-      <p>Conformément au Règlement Général sur la Protection des Données, vous disposez des droits suivants :</p>
-      <ul>
-        <li><strong>Droit d'accès</strong> — voir toutes vos données dans l'application</li>
-        <li><strong>Droit de rectification</strong> — modifier vos données dans Réglages → Ma Famille</li>
-        <li><strong>Droit à l'effacement</strong> — supprimer votre compte depuis Réglages → Supprimer mon profil</li>
-        <li><strong>Droit à la portabilité</strong> — contactez-nous pour exporter vos données</li>
-        <li><strong>Droit d'opposition</strong> — contactez-nous à <a href="mailto:Creator_apps@protonmail.com">Creator_apps@protonmail.com</a></li>
-      </ul>
-      <div class="highlight">
-        <p>La suppression de compte depuis l'application efface immédiatement toutes vos données personnelles et, si vous êtes le dernier membre, toutes les données de la famille.</p>
-      </div>
-    </div>
-
-    <!-- Mineurs -->
-    <div class="card">
-      <h2><span class="icon">👶</span> Données des mineurs</h2>
-      <p>FamilleApp est destinée aux familles. Les profils enfants sont créés et gérés par les parents (rôle "Parent") au sein de l'application. Aucun email n'est requis pour les profils enfants.</p>
-      <p>Nous ne collectons pas sciemment de données personnelles d'enfants de moins de 13 ans de façon directe.</p>
-    </div>
-
-    <!-- Contact -->
-    <div class="card">
-      <h2><span class="icon">📬</span> Nous contacter</h2>
-      <p>Pour toute question concernant cette politique de confidentialité ou vos données personnelles :</p>
-      <p>📧 <a href="mailto:Creator_apps@protonmail.com">Creator_apps@protonmail.com</a></p>
-      <p>Nous nous engageons à répondre dans un délai de 30 jours.</p>
-    </div>
-
-    <div class="footer">
-      <p>© 2026 FamilleApp — Bruno Silva</p>
-      <p style="margin-top: 8px;">Cette politique peut être mise à jour. La date de dernière modification est indiquée en haut de cette page.</p>
-      <p style="margin-top: 8px;"><a href="https://brunofrsilva-lab.github.io/familleapp-privacy/privacy-policy.html">Version en ligne</a></p>
-    </div>
-
   </div>
+
+  <div class="card">
+    <h2>📊 Données collectées</h2>
+
+    <h3>Données de compte</h3>
+    <ul>
+      <li>Adresse email (parents uniquement)</li>
+      <li>Prénom</li>
+      <li>Mot de passe (hashé, jamais stocké en clair)</li>
+      <li>Photo de profil (optionnelle)</li>
+      <li>Rôle dans la famille (parent ou enfant)</li>
+    </ul>
+
+    <h3>Comptes enfants</h3>
+    <p>Les comptes enfants utilisent un email généré automatiquement (format <code>child_xxx@familleapp.app</code>), invisible pour l'utilisateur. Ce compte est créé et géré exclusivement par un parent.</p>
+
+    <h3>Données familiales</h3>
+    <ul>
+      <li>Rendez-vous et congés du calendrier familial</li>
+      <li>Liste de courses partagée</li>
+      <li>Tâches et points des enfants</li>
+      <li>Menu de la semaine</li>
+      <li>Trajets (départs et arrivées)</li>
+      <li>Contacts importants</li>
+      <li>Informations sur les animaux de compagnie</li>
+    </ul>
+
+    <h3>Données techniques</h3>
+    <ul>
+      <li>Token de notification push (par appareil)</li>
+      <li>Identifiant de session Supabase</li>
+      <li>Logs d'erreurs anonymisés</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>🔔 Notifications Push & Firebase</h2>
+    <p>FamilleApp utilise <strong>Firebase Cloud Messaging (Google)</strong> pour envoyer des notifications push entre membres de la famille.</p>
+    <ul>
+      <li>Un token d'appareil unique est généré à l'installation</li>
+      <li>Ce token est stocké dans notre base de données Supabase</li>
+      <li>Il est utilisé uniquement pour envoyer des notifications aux membres de votre famille</li>
+      <li>Un appareil peut avoir plusieurs tokens (si plusieurs comptes sont utilisés)</li>
+      <li>Les tokens sont supprimés lors de la suppression du compte</li>
+    </ul>
+    <div class="highlight">
+      Firebase est un service de Google LLC. Sa politique de confidentialité est disponible sur <a href="https://firebase.google.com/support/privacy">firebase.google.com/support/privacy</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>🤖 Intelligence Artificielle (Kelly)</h2>
+    <p>L'assistant Kelly utilise des services IA tiers selon votre configuration :</p>
+    <ul>
+      <li><strong>Google Gemini</strong> — Google LLC</li>
+      <li><strong>Claude</strong> — Anthropic</li>
+      <li><strong>OpenAI GPT</strong> — OpenAI</li>
+    </ul>
+    <p>Les données envoyées à ces services incluent : votre agenda de la semaine, vos tâches, votre liste de courses et vos menus planifiés. Ces données sont utilisées uniquement pour générer des conseils personnalisés.</p>
+    <p>Les appels IA transitent par un proxy sécurisé (Supabase Edge Functions) — votre clé API n'est jamais exposée côté client.</p>
+  </div>
+
+  <div class="card">
+    <h2>🔗 Deep Links</h2>
+    <p>FamilleApp prend en charge les liens d'invitation de type <code>familleapp://join?code=XXX</code>. Ces liens permettent à un nouveau membre de rejoindre une famille en un tap. Aucune donnée personnelle n'est transmise via ces liens.</p>
+  </div>
+
+  <div class="card">
+    <h2>🗄️ Stockage des données</h2>
+    <p>Vos données sont stockées sur <strong>Supabase</strong>, une plateforme cloud sécurisée :</p>
+    <ul>
+      <li>Serveurs situés en <strong>Europe</strong></li>
+      <li>Chiffrement en transit (HTTPS/TLS)</li>
+      <li>Chiffrement au repos</li>
+      <li>Accès restreint par politique RLS (Row Level Security)</li>
+      <li>Chaque famille accède uniquement à ses propres données</li>
+    </ul>
+    <p>Les photos de profil sont stockées dans Supabase Storage (bucket privé).</p>
+    <p>Certaines données sont également stockées localement sur votre appareil via AsyncStorage et SecureStore (données de session, préférences).</p>
+  </div>
+
+  <div class="card">
+    <h2>💳 Abonnement & Paiements</h2>
+    <p>FamilleApp propose un abonnement premium via <strong>RevenueCat</strong> et le <strong>Google Play Store</strong>.</p>
+    <ul>
+      <li>Les paiements sont traités exclusivement par Google Play</li>
+      <li>FamilleApp ne collecte ni ne stocke aucune donnée de paiement</li>
+      <li>RevenueCat est utilisé pour vérifier le statut d'abonnement</li>
+    </ul>
+    <p>Politique de RevenueCat : <a href="https://www.revenuecat.com/privacy">revenuecat.com/privacy</a></p>
+  </div>
+
+  <div class="card">
+    <h2>🔒 Sécurité</h2>
+    <ul>
+      <li>Mots de passe hashés avec SHA-256 avant stockage</li>
+      <li>Sessions sécurisées via SecureStore (chiffrement natif Android)</li>
+      <li>Clés API stockées localement, jamais transmises à nos serveurs</li>
+      <li>Politique RLS Supabase : chaque famille est isolée</li>
+      <li>Clés Firebase restreintes au package <code>com.braquelapps.familleapp</code></li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>👨‍👩‍👧 Protection des enfants</h2>
+    <p>FamilleApp permet la création de comptes enfants, gérés exclusivement par les parents.</p>
+    <ul>
+      <li>Les enfants ne fournissent pas d'email — un email fictif est généré automatiquement</li>
+      <li>Les comptes enfants sont créés et contrôlés par un parent</li>
+      <li>Les enfants n'ont accès qu'aux données familiales partagées</li>
+      <li>Aucune donnée enfant n'est partagée avec des tiers</li>
+      <li>Conformité COPPA et RGPD assurée</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>⚖️ Vos droits (RGPD)</h2>
+    <p>Conformément au Règlement Général sur la Protection des Données (RGPD), vous avez le droit de :</p>
+    <ul>
+      <li><strong>Accéder</strong> à vos données personnelles</li>
+      <li><strong>Rectifier</strong> des données inexactes</li>
+      <li><strong>Supprimer</strong> votre compte et toutes vos données</li>
+      <li><strong>Portabilité</strong> de vos données</li>
+      <li><strong>Opposition</strong> au traitement de vos données</li>
+    </ul>
+    <div class="highlight">
+      Pour supprimer votre compte : <strong>Réglages → Supprimer mon profil</strong> dans l'application.<br>
+      Ou via notre page dédiée : <a href="https://brunofrsilva-lab.github.io/familleapp-privacy/delete.html">Page de suppression</a>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>🌐 Services tiers utilisés</h2>
+    <ul>
+      <li><strong>Supabase</strong> — Base de données et authentification</li>
+      <li><strong>Firebase (Google)</strong> — Notifications push</li>
+      <li><strong>RevenueCat</strong> — Gestion des abonnements</li>
+      <li><strong>Google Gemini</strong> — IA (optionnel)</li>
+      <li><strong>Anthropic Claude</strong> — IA (optionnel)</li>
+      <li><strong>OpenAI</strong> — IA (optionnel)</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>📝 Modifications</h2>
+    <p>Nous pouvons mettre à jour cette politique occasionnellement. Les modifications importantes seront notifiées via l'application. La date de dernière mise à jour est indiquée en haut de ce document.</p>
+    <p>L'utilisation continue de l'application après modification vaut acceptation de la nouvelle politique.</p>
+  </div>
+
+  <div class="card">
+    <h2>📬 Contact</h2>
+    <p>Pour toute question concernant cette politique de confidentialité :</p>
+    <div class="contact-box">
+      <a href="mailto:Creator_apps@protonmail.com">Creator_apps@protonmail.com</a>
+      <br><br>
+      <small>BraquelApps — Suisse</small>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2026 BraquelApps — FamilleApp</p>
+    <p style="margin-top:8px;">
+      <a href="https://brunofrsilva-lab.github.io/familleapp-privacy/delete.html">Supprimer mon compte</a>
+    </p>
+  </footer>
+
+</div>
 </body>
 </html>
