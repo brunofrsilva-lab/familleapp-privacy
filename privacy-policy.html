@@ -1,321 +1,721 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Politique de Confidentialité — FamilleApp</title>
   <style>
     :root {
-      --blue: #007AFF;
-      --bg: #F2F0ED;
+      --accent: #007AFF;
+      --accent-soft: #EBF4FF;
+      --success: #34C759;
+      --success-soft: #F0FFF4;
+      --warning: #FF9500;
+      --bg: #F9FAFB;
       --surface: #FFFFFF;
-      --text: #1a1a1a;
-      --text2: #555;
-      --border: #e0ddd8;
+      --border: #E5E7EB;
+      --text-primary: #111827;
+      --text-secondary: #6B7280;
+      --text-tertiary: #9CA3AF;
+      --radius: 16px;
+      --radius-sm: 10px;
     }
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       background: var(--bg);
-      color: var(--text);
+      color: var(--text-primary);
       line-height: 1.7;
-      padding: 20px;
+      font-size: 15px;
     }
+
+    /* ── Header ── */
+    .hero {
+      background: linear-gradient(135deg, #007AFF 0%, #5856D6 100%);
+      color: white;
+      padding: 60px 24px 48px;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.2);
+      border-radius: 100px;
+      padding: 6px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      backdrop-filter: blur(10px);
+    }
+    .hero h1 {
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 800;
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+    .hero p {
+      font-size: 16px;
+      opacity: 0.85;
+      max-width: 500px;
+      margin: 0 auto 24px;
+    }
+    .hero-meta {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .hero-meta span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      opacity: 0.8;
+    }
+
+    /* ── Layout ── */
     .container {
-      max-width: 720px;
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    /* ── Summary cards ── */
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      padding: 32px 16px;
+      max-width: 780px;
       margin: 0 auto;
     }
-    header {
-      text-align: center;
-      padding: 40px 0 32px;
-    }
-    .logo {
-      font-size: 48px;
-      margin-bottom: 12px;
-    }
-    h1 {
-      font-size: 28px;
-      font-weight: 700;
-      color: var(--blue);
-      margin-bottom: 6px;
-    }
-    .subtitle {
-      color: var(--text2);
-      font-size: 14px;
-    }
-    .card {
+    .summary-card {
       background: var(--surface);
-      border-radius: 16px;
-      padding: 24px;
-      margin-bottom: 16px;
+      border-radius: var(--radius);
+      padding: 20px;
       border: 1px solid var(--border);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
     }
-    h2 {
+    .summary-card .icon {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+    .summary-card h3 {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: var(--text-primary);
+    }
+    .summary-card p {
+      font-size: 12px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* ── Sections ── */
+    .section {
+      background: var(--surface);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      margin-bottom: 16px;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 22px 24px 18px;
+      border-bottom: 1px solid var(--border);
+    }
+    .section-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+    .section-header h2 {
       font-size: 17px;
       font-weight: 700;
-      margin-bottom: 12px;
-      color: var(--blue);
+      color: var(--text-primary);
+    }
+    .section-header p {
+      font-size: 13px;
+      color: var(--text-secondary);
+      margin-top: 2px;
+    }
+    .section-body {
+      padding: 20px 24px;
+    }
+
+    /* ── Lists ── */
+    .data-list {
+      list-style: none;
+    }
+    .data-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+    }
+    .data-list li:last-child { border-bottom: none; }
+    .data-list li .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+      margin-top: 6px;
+    }
+    .data-list li strong {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+    .data-list li span {
+      color: var(--text-secondary);
+    }
+
+    /* ── Provider cards ── */
+    .provider-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 10px;
+      margin-top: 4px;
+    }
+    .provider-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 14px;
+      text-align: center;
+    }
+    .provider-card .p-icon { font-size: 24px; margin-bottom: 6px; }
+    .provider-card .p-name { font-size: 13px; font-weight: 700; margin-bottom: 2px; }
+    .provider-card .p-role { font-size: 11px; color: var(--text-secondary); margin-bottom: 6px; }
+    .provider-card a {
+      font-size: 11px;
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .provider-card a:hover { text-decoration: underline; }
+
+    /* ── Rights grid ── */
+    .rights-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 10px;
+    }
+    .right-card {
+      background: var(--accent-soft);
+      border-radius: var(--radius-sm);
+      padding: 14px;
+    }
+    .right-card .r-icon { font-size: 22px; margin-bottom: 8px; }
+    .right-card .r-title { font-size: 13px; font-weight: 700; color: var(--accent); margin-bottom: 4px; }
+    .right-card .r-desc { font-size: 12px; color: var(--text-secondary); line-height: 1.5; }
+
+    /* ── Highlight box ── */
+    .highlight {
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      margin: 16px 0;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .highlight.info { background: var(--accent-soft); border-left: 4px solid var(--accent); }
+    .highlight.success { background: var(--success-soft); border-left: 4px solid var(--success); }
+    .highlight.warning { background: #FFFBEB; border-left: 4px solid var(--warning); }
+    .highlight .h-icon { font-size: 20px; flex-shrink: 0; }
+    .highlight .h-text { font-size: 13px; line-height: 1.6; color: var(--text-primary); }
+    .highlight .h-text strong { font-weight: 700; }
+
+    /* ── Text ── */
+    .body-text { font-size: 14px; color: var(--text-secondary); line-height: 1.7; margin-bottom: 12px; }
+    .body-text:last-child { margin-bottom: 0; }
+
+    /* ── Contact card ── */
+    .contact-card {
+      background: linear-gradient(135deg, #007AFF, #5856D6);
+      border-radius: var(--radius);
+      padding: 28px 24px;
+      color: white;
+      text-align: center;
+      margin-bottom: 16px;
+    }
+    .contact-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+    .contact-card p { opacity: 0.85; font-size: 14px; margin-bottom: 18px; }
+    .contact-card a {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: white;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 14px;
+      padding: 12px 24px;
+      border-radius: 100px;
+      text-decoration: none;
+    }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center;
+      padding: 32px 16px 48px;
+      color: var(--text-tertiary);
+      font-size: 12px;
+      line-height: 1.8;
+    }
+    footer .swiss { font-size: 22px; margin-bottom: 8px; }
+    footer strong { color: var(--text-secondary); }
+
+    /* ── TOC ── */
+    .toc {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      margin-bottom: 16px;
+    }
+    .toc h3 { font-size: 13px; font-weight: 700; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; }
+    .toc ol { list-style: none; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 4px; }
+    .toc ol li { counter-increment: toc-counter; }
+    .toc ol li a {
       display: flex;
       align-items: center;
       gap: 8px;
-    }
-    h3 {
-      font-size: 15px;
-      font-weight: 600;
-      margin: 16px 0 6px;
-      color: var(--text);
-    }
-    p {
-      font-size: 14px;
-      color: var(--text2);
-      margin-bottom: 10px;
-    }
-    ul {
-      padding-left: 20px;
-      margin-bottom: 10px;
-    }
-    li {
-      font-size: 14px;
-      color: var(--text2);
-      margin-bottom: 4px;
-    }
-    .badge {
-      display: inline-block;
-      background: #e8f2ff;
-      color: var(--blue);
-      font-size: 12px;
-      font-weight: 600;
-      padding: 2px 8px;
-      border-radius: 20px;
-      margin-bottom: 8px;
-    }
-    .highlight {
-      background: #f0f7ff;
-      border-left: 3px solid var(--blue);
-      padding: 12px 16px;
-      border-radius: 0 8px 8px 0;
-      margin: 10px 0;
-      font-size: 14px;
-      color: var(--text2);
-    }
-    footer {
-      text-align: center;
-      padding: 32px 0;
       font-size: 13px;
-      color: var(--text2);
-    }
-    a {
-      color: var(--blue);
+      color: var(--accent);
       text-decoration: none;
+      padding: 4px 0;
     }
-    .contact-box {
-      background: #f0f7ff;
-      border-radius: 12px;
-      padding: 16px;
-      text-align: center;
-      margin-top: 8px;
-    }
-    .contact-box a {
-      font-weight: 600;
-      font-size: 15px;
-    }
-    .version-tag {
-      background: var(--blue);
-      color: white;
+    .toc ol li a:hover { text-decoration: underline; }
+    .toc ol li a::before {
+      content: counter(toc-counter, decimal-leading-zero);
       font-size: 11px;
       font-weight: 700;
-      padding: 3px 10px;
-      border-radius: 20px;
-      display: inline-block;
-      margin-bottom: 16px;
+      color: var(--text-tertiary);
+      min-width: 22px;
+    }
+
+    @media (max-width: 600px) {
+      .hero { padding: 40px 16px 36px; }
+      .section-body { padding: 16px; }
+      .section-header { padding: 16px; }
+      .provider-grid { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
 <body>
+
+<!-- ══ HERO ══ -->
+<div class="hero">
+  <div class="hero-badge">🇨🇭 Made in Switzerland · BraquelApps</div>
+  <h1>Politique de Confidentialité</h1>
+  <p>Nous respectons votre vie privée et celle de votre famille. Voici exactement ce que nous faisons de vos données.</p>
+  <div class="hero-meta">
+    <span>📅 Dernière mise à jour : Juin 2026</span>
+    <span>📌 Version 2.0</span>
+    <span>🔒 RGPD Conforme</span>
+  </div>
+</div>
+
+<!-- ══ SUMMARY ══ -->
+<div class="summary-grid">
+  <div class="summary-card">
+    <div class="icon">🔒</div>
+    <h3>Données privées</h3>
+    <p>Vos données familiales ne sont jamais vendues ni partagées avec des annonceurs.</p>
+  </div>
+  <div class="summary-card">
+    <div class="icon">🇨🇭</div>
+    <h3>Hébergement sécurisé</h3>
+    <p>Données stockées sur Supabase avec chiffrement et Row Level Security.</p>
+  </div>
+  <div class="summary-card">
+    <div class="icon">👶</div>
+    <h3>Protection des enfants</h3>
+    <p>Consentement parental requis. Aucune publicité ciblée pour les mineurs.</p>
+  </div>
+  <div class="summary-card">
+    <div class="icon">✏️</div>
+    <h3>Vos droits</h3>
+    <p>Accès, modification et suppression de vos données à tout moment.</p>
+  </div>
+</div>
+
 <div class="container">
 
-  <header>
-    <div class="logo">🏠</div>
-    <h1>Politique de Confidentialité</h1>
-    <p class="subtitle">FamilleApp — BraquelApps</p>
-    <br>
-    <span class="version-tag">Version 1.2 — Mai 2026</span>
-  </header>
+  <!-- ══ TABLE DES MATIÈRES ══ -->
+  <div class="toc">
+    <h3>Table des matières</h3>
+    <ol>
+      <li><a href="#collecte">Données collectées</a></li>
+      <li><a href="#utilisation">Comment nous les utilisons</a></li>
+      <li><a href="#kelly">Kelly IA & Google Gemini</a></li>
+      <li><a href="#partenaires">Partenaires tiers</a></li>
+      <li><a href="#enfants">Protection des enfants</a></li>
+      <li><a href="#securite">Sécurité</a></li>
+      <li><a href="#droits">Vos droits RGPD</a></li>
+      <li><a href="#conservation">Conservation des données</a></li>
+      <li><a href="#contact">Nous contacter</a></li>
+    </ol>
+  </div>
 
-  <div class="card">
-    <h2>👋 Introduction</h2>
-    <p>Bienvenue sur FamilleApp. Cette politique explique comment nous collectons, utilisons et protégeons vos données personnelles lorsque vous utilisez notre application.</p>
-    <p>En utilisant FamilleApp, vous acceptez les pratiques décrites dans ce document. Si vous n'acceptez pas ces conditions, veuillez ne pas utiliser l'application.</p>
-    <div class="highlight">
-      <strong>Responsable du traitement :</strong> Bruno Filipe Rocha e Silva (BraquelApps)<br>
-      <strong>Contact :</strong> Creator_apps@protonmail.com<br>
-      <strong>Pays :</strong> Suisse
+  <!-- ══ 1. DONNÉES COLLECTÉES ══ -->
+  <div class="section" id="collecte">
+    <div class="section-header">
+      <div class="section-icon" style="background:#EBF4FF">📋</div>
+      <div>
+        <h2>1. Données collectées</h2>
+        <p>Uniquement ce qui est nécessaire au bon fonctionnement de l'app</p>
+      </div>
+    </div>
+    <div class="section-body">
+      <ul class="data-list">
+        <li>
+          <div class="dot"></div>
+          <div><strong>Compte & profil</strong> — <span>Adresse email, prénom, photo de profil (optionnelle), rôle dans la famille (parent / enfant)</span></div>
+        </li>
+        <li>
+          <div class="dot"></div>
+          <div><strong>Données familiales</strong> — <span>Événements agenda, tâches, liste de courses, menu de la semaine, récompenses, trajets</span></div>
+        </li>
+        <li>
+          <div class="dot"></div>
+          <div><strong>Localisation</strong> — <span>Uniquement lorsque vous partagez un trajet en temps réel (fonctionnalité "Départ"). Non collectée en arrière-plan.</span></div>
+        </li>
+        <li>
+          <div class="dot"></div>
+          <div><strong>Notifications push</strong> — <span>Token d'appareil pour recevoir les notifications famille (Firebase FCM)</span></div>
+        </li>
+        <li>
+          <div class="dot"></div>
+          <div><strong>Données d'abonnement</strong> — <span>Statut Premium via RevenueCat. Aucune donnée bancaire n'est stockée par FamilleApp.</span></div>
+        </li>
+        <li>
+          <div class="dot"></div>
+          <div><strong>Données IA (Kelly)</strong> — <span>Résumés anonymisés de votre semaine envoyés à Google Gemini pour générer des conseils. Voir section 3.</span></div>
+        </li>
+      </ul>
+      <div class="highlight info" style="margin-top:16px">
+        <div class="h-icon">ℹ️</div>
+        <div class="h-text">Nous ne collectons pas : numéro de téléphone, données de navigation, identifiants publicitaires, ou toute donnée non listée ci-dessus.</div>
+      </div>
     </div>
   </div>
 
-  <div class="card">
-    <h2>📊 Données collectées</h2>
-
-    <h3>Données de compte</h3>
-    <ul>
-      <li>Adresse email (parents uniquement)</li>
-      <li>Prénom</li>
-      <li>Mot de passe (hashé, jamais stocké en clair)</li>
-      <li>Photo de profil (optionnelle)</li>
-      <li>Rôle dans la famille (parent ou enfant)</li>
-    </ul>
-
-    <h3>Comptes enfants</h3>
-    <p>Les comptes enfants utilisent un email généré automatiquement (format <code>child_xxx@familleapp.app</code>), invisible pour l'utilisateur. Ce compte est créé et géré exclusivement par un parent.</p>
-
-    <h3>Données familiales</h3>
-    <ul>
-      <li>Rendez-vous et congés du calendrier familial</li>
-      <li>Liste de courses partagée</li>
-      <li>Tâches et points des enfants</li>
-      <li>Menu de la semaine</li>
-      <li>Trajets (départs et arrivées)</li>
-      <li>Contacts importants</li>
-      <li>Informations sur les animaux de compagnie</li>
-    </ul>
-
-    <h3>Données techniques</h3>
-    <ul>
-      <li>Token de notification push (par appareil)</li>
-      <li>Identifiant de session Supabase</li>
-      <li>Logs d'erreurs anonymisés</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <h2>🔔 Notifications Push & Firebase</h2>
-    <p>FamilleApp utilise <strong>Firebase Cloud Messaging (Google)</strong> pour envoyer des notifications push entre membres de la famille.</p>
-    <ul>
-      <li>Un token d'appareil unique est généré à l'installation</li>
-      <li>Ce token est stocké dans notre base de données Supabase</li>
-      <li>Il est utilisé uniquement pour envoyer des notifications aux membres de votre famille</li>
-      <li>Un appareil peut avoir plusieurs tokens (si plusieurs comptes sont utilisés)</li>
-      <li>Les tokens sont supprimés lors de la suppression du compte</li>
-    </ul>
-    <div class="highlight">
-      Firebase est un service de Google LLC. Sa politique de confidentialité est disponible sur <a href="https://firebase.google.com/support/privacy">firebase.google.com/support/privacy</a>
+  <!-- ══ 2. UTILISATION ══ -->
+  <div class="section" id="utilisation">
+    <div class="section-header">
+      <div class="section-icon" style="background:#F0FFF4">⚙️</div>
+      <div>
+        <h2>2. Comment nous utilisons vos données</h2>
+        <p>Toujours dans votre intérêt, jamais à des fins commerciales</p>
+      </div>
+    </div>
+    <div class="section-body">
+      <ul class="data-list">
+        <li>
+          <div class="dot" style="background:#34C759"></div>
+          <div><strong>Fonctionnement de l'app</strong> — <span>Synchroniser l'agenda, les tâches et les courses entre tous les membres de la famille</span></div>
+        </li>
+        <li>
+          <div class="dot" style="background:#34C759"></div>
+          <div><strong>Notifications</strong> — <span>Alertes pour les événements, tâches, anniversaires et partages de trajets</span></div>
+        </li>
+        <li>
+          <div class="dot" style="background:#34C759"></div>
+          <div><strong>Kelly IA</strong> — <span>Générer des analyses hebdomadaires et des conseils personnalisés pour votre famille</span></div>
+        </li>
+        <li>
+          <div class="dot" style="background:#34C759"></div>
+          <div><strong>Abonnement Premium</strong> — <span>Vérifier et gérer votre statut d'abonnement via RevenueCat</span></div>
+        </li>
+      </ul>
+      <div class="highlight success" style="margin-top:16px">
+        <div class="h-icon">✅</div>
+        <div class="h-text"><strong>Nous ne vendons jamais vos données.</strong> Nous n'affichons aucune publicité. FamilleApp est financée uniquement par les abonnements Premium.</div>
+      </div>
     </div>
   </div>
 
-  <div class="card">
-    <h2>🤖 Intelligence Artificielle (Kelly)</h2>
-    <p>L'assistant Kelly utilise des services IA tiers selon votre configuration :</p>
-    <ul>
-      <li><strong>Google Gemini</strong> — Google LLC</li>
-      <li><strong>Claude</strong> — Anthropic</li>
-      <li><strong>OpenAI GPT</strong> — OpenAI</li>
-    </ul>
-    <p>Les données envoyées à ces services incluent : votre agenda de la semaine, vos tâches, votre liste de courses et vos menus planifiés. Ces données sont utilisées uniquement pour générer des conseils personnalisés.</p>
-    <p>Les appels IA transitent par un proxy sécurisé (Supabase Edge Functions) — votre clé API n'est jamais exposée côté client.</p>
-  </div>
+  <!-- ══ 3. KELLY IA ══ -->
+  <div class="section" id="kelly">
+    <div class="section-header">
+      <div class="section-icon" style="background:#F5F3FF">✨</div>
+      <div>
+        <h2>3. Kelly IA & Google Gemini</h2>
+        <p>Comment fonctionne l'intelligence artificielle dans FamilleApp</p>
+      </div>
+    </div>
+    <div class="section-body">
+      <p class="body-text">Kelly est l'assistante IA intégrée à FamilleApp. Elle utilise <strong>Google Gemini</strong> (gemini-2.5-flash-lite) pour analyser votre semaine et générer des conseils personnalisés.</p>
 
-  <div class="card">
-    <h2>🔗 Deep Links</h2>
-    <p>FamilleApp prend en charge les liens d'invitation de type <code>familleapp://join?code=XXX</code>. Ces liens permettent à un nouveau membre de rejoindre une famille en un tap. Aucune donnée personnelle n'est transmise via ces liens.</p>
-  </div>
+      <div class="highlight info">
+        <div class="h-icon">🔐</div>
+        <div class="h-text"><strong>Architecture sécurisée :</strong> Votre clé API n'est jamais dans l'application. Les requêtes passent par un proxy sécurisé (Supabase Edge Function) — votre app ne communique jamais directement avec Google.</div>
+      </div>
 
-  <div class="card">
-    <h2>🗄️ Stockage des données</h2>
-    <p>Vos données sont stockées sur <strong>Supabase</strong>, une plateforme cloud sécurisée :</p>
-    <ul>
-      <li>Serveurs situés en <strong>Europe</strong></li>
-      <li>Chiffrement en transit (HTTPS/TLS)</li>
-      <li>Chiffrement au repos</li>
-      <li>Accès restreint par politique RLS (Row Level Security)</li>
-      <li>Chaque famille accède uniquement à ses propres données</li>
-    </ul>
-    <p>Les photos de profil sont stockées dans Supabase Storage (bucket privé).</p>
-    <p>Certaines données sont également stockées localement sur votre appareil via AsyncStorage et SecureStore (données de session, préférences).</p>
-  </div>
+      <p class="body-text" style="margin-top:16px"><strong>Ce qui est envoyé à Google Gemini :</strong></p>
+      <ul class="data-list">
+        <li>
+          <div class="dot" style="background:#5856D6"></div>
+          <div><strong>Résumé de semaine</strong> — <span>Nombre de tâches, événements à venir, menu prévu (pas de noms complets, pas d'emails)</span></div>
+        </li>
+        <li>
+          <div class="dot" style="background:#5856D6"></div>
+          <div><strong>Messages du chat Kelly</strong> — <span>Vos questions et les prénoms des membres (pas d'informations sensibles)</span></div>
+        </li>
+      </ul>
 
-  <div class="card">
-    <h2>💳 Abonnement & Paiements</h2>
-    <p>FamilleApp propose un abonnement premium via <strong>RevenueCat</strong> et le <strong>Google Play Store</strong>.</p>
-    <ul>
-      <li>Les paiements sont traités exclusivement par Google Play</li>
-      <li>FamilleApp ne collecte ni ne stocke aucune donnée de paiement</li>
-      <li>RevenueCat est utilisé pour vérifier le statut d'abonnement</li>
-    </ul>
-    <p>Politique de RevenueCat : <a href="https://www.revenuecat.com/privacy">revenuecat.com/privacy</a></p>
-  </div>
-
-  <div class="card">
-    <h2>🔒 Sécurité</h2>
-    <ul>
-      <li>Mots de passe hashés avec SHA-256 avant stockage</li>
-      <li>Sessions sécurisées via SecureStore (chiffrement natif Android)</li>
-      <li>Clés API stockées localement, jamais transmises à nos serveurs</li>
-      <li>Politique RLS Supabase : chaque famille est isolée</li>
-      <li>Clés Firebase restreintes au package <code>com.braquelapps.familleapp</code></li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <h2>👨‍👩‍👧 Protection des enfants</h2>
-    <p>FamilleApp permet la création de comptes enfants, gérés exclusivement par les parents.</p>
-    <ul>
-      <li>Les enfants ne fournissent pas d'email — un email fictif est généré automatiquement</li>
-      <li>Les comptes enfants sont créés et contrôlés par un parent</li>
-      <li>Les enfants n'ont accès qu'aux données familiales partagées</li>
-      <li>Aucune donnée enfant n'est partagée avec des tiers</li>
-      <li>Conformité COPPA et RGPD assurée</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <h2>⚖️ Vos droits (RGPD)</h2>
-    <p>Conformément au Règlement Général sur la Protection des Données (RGPD), vous avez le droit de :</p>
-    <ul>
-      <li><strong>Accéder</strong> à vos données personnelles</li>
-      <li><strong>Rectifier</strong> des données inexactes</li>
-      <li><strong>Supprimer</strong> votre compte et toutes vos données</li>
-      <li><strong>Portabilité</strong> de vos données</li>
-      <li><strong>Opposition</strong> au traitement de vos données</li>
-    </ul>
-    <div class="highlight">
-      Pour supprimer votre compte : <strong>Réglages → Supprimer mon profil</strong> dans l'application.<br>
-      Ou via notre page dédiée : <a href="https://brunofrsilva-lab.github.io/familleapp-privacy/delete.html">Page de suppression</a>
+      <div class="highlight warning" style="margin-top:16px">
+        <div class="h-icon">⚠️</div>
+        <div class="h-text"><strong>Important :</strong> Les données envoyées à Google Gemini sont soumises à la <a href="https://policies.google.com/privacy" target="_blank" style="color:var(--warning)">Politique de Confidentialité de Google</a>. Nous vous recommandons de ne jamais inclure d'informations sensibles (numéros de sécurité sociale, mots de passe) dans vos messages à Kelly.</div>
+      </div>
     </div>
   </div>
 
-  <div class="card">
-    <h2>🌐 Services tiers utilisés</h2>
-    <ul>
-      <li><strong>Supabase</strong> — Base de données et authentification</li>
-      <li><strong>Firebase (Google)</strong> — Notifications push</li>
-      <li><strong>RevenueCat</strong> — Gestion des abonnements</li>
-      <li><strong>Google Gemini</strong> — IA (optionnel)</li>
-      <li><strong>Anthropic Claude</strong> — IA (optionnel)</li>
-      <li><strong>OpenAI</strong> — IA (optionnel)</li>
-    </ul>
-  </div>
-
-  <div class="card">
-    <h2>📝 Modifications</h2>
-    <p>Nous pouvons mettre à jour cette politique occasionnellement. Les modifications importantes seront notifiées via l'application. La date de dernière mise à jour est indiquée en haut de ce document.</p>
-    <p>L'utilisation continue de l'application après modification vaut acceptation de la nouvelle politique.</p>
-  </div>
-
-  <div class="card">
-    <h2>📬 Contact</h2>
-    <p>Pour toute question concernant cette politique de confidentialité :</p>
-    <div class="contact-box">
-      <a href="mailto:Creator_apps@protonmail.com">Creator_apps@protonmail.com</a>
-      <br><br>
-      <small>BraquelApps — Suisse</small>
+  <!-- ══ 4. PARTENAIRES ══ -->
+  <div class="section" id="partenaires">
+    <div class="section-header">
+      <div class="section-icon" style="background:#FFF7ED">🤝</div>
+      <div>
+        <h2>4. Partenaires tiers</h2>
+        <p>Services que nous utilisons et leurs rôles</p>
+      </div>
+    </div>
+    <div class="section-body">
+      <div class="provider-grid">
+        <div class="provider-card">
+          <div class="p-icon">🗄️</div>
+          <div class="p-name">Supabase</div>
+          <div class="p-role">Base de données & stockage</div>
+          <a href="https://supabase.com/privacy" target="_blank">Politique →</a>
+        </div>
+        <div class="provider-card">
+          <div class="p-icon">🔔</div>
+          <div class="p-name">Firebase (Google)</div>
+          <div class="p-role">Notifications push</div>
+          <a href="https://firebase.google.com/support/privacy" target="_blank">Politique →</a>
+        </div>
+        <div class="provider-card">
+          <div class="p-icon">✨</div>
+          <div class="p-name">Google Gemini</div>
+          <div class="p-role">Intelligence artificielle</div>
+          <a href="https://policies.google.com/privacy" target="_blank">Politique →</a>
+        </div>
+        <div class="provider-card">
+          <div class="p-icon">💳</div>
+          <div class="p-name">RevenueCat</div>
+          <div class="p-role">Gestion des abonnements</div>
+          <a href="https://www.revenuecat.com/privacy" target="_blank">Politique →</a>
+        </div>
+        <div class="provider-card">
+          <div class="p-icon">📧</div>
+          <div class="p-name">Resend</div>
+          <div class="p-role">Emails transactionnels</div>
+          <a href="https://resend.com/privacy" target="_blank">Politique →</a>
+        </div>
+        <div class="provider-card">
+          <div class="p-icon">🛒</div>
+          <div class="p-name">Google Play</div>
+          <div class="p-role">Distribution & paiements</div>
+          <a href="https://policies.google.com/privacy" target="_blank">Politique →</a>
+        </div>
+      </div>
+      <div class="highlight info" style="margin-top:16px">
+        <div class="h-icon">🔒</div>
+        <div class="h-text">Aucun de ces partenaires n'a accès à l'ensemble de vos données. Chacun reçoit uniquement ce qui est nécessaire à sa fonction spécifique.</div>
+      </div>
     </div>
   </div>
 
+  <!-- ══ 5. ENFANTS ══ -->
+  <div class="section" id="enfants">
+    <div class="section-header">
+      <div class="section-icon" style="background:#FFF0F6">👶</div>
+      <div>
+        <h2>5. Protection des enfants</h2>
+        <p>Mesures spécifiques pour les mineurs (RGPD Art. 8)</p>
+      </div>
+    </div>
+    <div class="section-body">
+      <p class="body-text">FamilleApp est conçue pour être utilisée par des familles avec enfants. Nous prenons la protection des données des mineurs très au sérieux.</p>
+      <ul class="data-list">
+        <li>
+          <div class="dot" style="background:#FF2D55"></div>
+          <div><strong>Consentement parental</strong> — <span>Les comptes enfants sont créés et contrôlés par un parent. L'enfant se connecte avec un code famille fourni par le parent.</span></div>
+        </li>
+        <li>
+          <div class="dot" style="background:#FF2D55"></div>
+          <div><strong>Données minimales</strong> — <span>Pour les enfants, nous collectons uniquement le prénom, un avatar optionnel et les points/tâches liés à leur profil.</span></div>
+        </li>
+        <li>
+          <div class="dot" style="background:#FF2D55"></div>
+          <div><strong>Validation parentale des tâches</strong> — <span>Les tâches proposées par un enfant sont soumises à l'approbation d'un parent avant d'apparaître dans la liste familiale. Aucune tâche n'est visible par la famille sans validation explicite d'un parent.</span></div>
+        </li>
+        <li>
+          <div class="dot" style="background:#FF2D55"></div>
+          <div><strong>Permissions limitées</strong> — <span>Les enfants ne peuvent pas modifier ni supprimer les rendez-vous, congés ou profils créés par un parent. Ils peuvent uniquement gérer leurs propres entrées.</span></div>
+        </li>
+        <li>
+          <div class="dot" style="background:#FF2D55"></div>
+          <div><strong>Aucune publicité</strong> — <span>FamilleApp n'affiche aucune publicité, pour les adultes comme pour les enfants.</span></div>
+        </li>
+        <li>
+          <div class="dot" style="background:#FF2D55"></div>
+          <div><strong>Suppression immédiate</strong> — <span>Un parent peut supprimer le profil d'un enfant à tout moment depuis les Réglages.</span></div>
+        </li>
+      </ul>
+      <div class="highlight warning" style="margin-top:16px">
+        <div class="h-icon">⚠️</div>
+        <div class="h-text">Si vous pensez qu'un enfant a créé un compte sans consentement parental, contactez-nous immédiatement à <strong>contact@braquelapps.com</strong> pour suppression.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 6. SÉCURITÉ ══ -->
+  <div class="section" id="securite">
+    <div class="section-header">
+      <div class="section-icon" style="background:#F0FFF4">🔐</div>
+      <div>
+        <h2>6. Sécurité des données</h2>
+        <p>Comment nous protégeons vos informations</p>
+      </div>
+    </div>
+    <div class="section-body">
+      <ul class="data-list">
+        <li>
+          <div class="dot" style="background:#34C759"></div>
+          <div><strong>Chiffrement en transit</strong> — <span>Toutes les communications sont chiffrées via HTTPS/TLS</span></div>
+        </li>
+        <li>
+          <div class="dot" style="background:#34C759"></div>
+          <div><strong>Row Level Security (RLS)</strong> — <span>Chaque famille ne peut accéder qu'à ses propres données — impossible d'accéder aux données d'une autre famille</span></div>
+        </li>
+        <li>
+          <div class="dot" style="background:#34C759"></div>
+          <div><strong>Données sensibles locales</strong> — <span>Les tokens d'authentification sont stockés dans le Secure Store du téléphone, jamais en clair</span></div>
+        </li>
+        <li>
+          <div class="dot" style="background:#34C759"></div>
+          <div><strong>Clés API sécurisées</strong> — <span>Les clés d'API (Gemini, etc.) ne sont jamais dans l'application — stockées côté serveur uniquement</span></div>
+        </li>
+        <li>
+          <div class="dot" style="background:#34C759"></div>
+          <div><strong>Authentification biométrique</strong> — <span>Option de verrouillage par empreinte digitale ou reconnaissance faciale disponible</span></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ══ 7. DROITS RGPD ══ -->
+  <div class="section" id="droits">
+    <div class="section-header">
+      <div class="section-icon" style="background:#EBF4FF">⚖️</div>
+      <div>
+        <h2>7. Vos droits RGPD</h2>
+        <p>Vous êtes en contrôle total de vos données</p>
+      </div>
+    </div>
+    <div class="section-body">
+      <div class="rights-grid">
+        <div class="right-card">
+          <div class="r-icon">👁️</div>
+          <div class="r-title">Droit d'accès</div>
+          <div class="r-desc">Obtenez une copie de toutes vos données personnelles que nous détenons.</div>
+        </div>
+        <div class="right-card">
+          <div class="r-icon">✏️</div>
+          <div class="r-title">Droit de rectification</div>
+          <div class="r-desc">Modifiez vos informations directement dans l'app (Réglages → Profil).</div>
+        </div>
+        <div class="right-card">
+          <div class="r-icon">🗑️</div>
+          <div class="r-title">Droit à l'oubli</div>
+          <div class="r-desc">Supprimez votre famille et toutes les données associées depuis les Réglages.</div>
+        </div>
+        <div class="right-card">
+          <div class="r-icon">📦</div>
+          <div class="r-title">Portabilité</div>
+          <div class="r-desc">Exportez vos données dans un format standard sur demande.</div>
+        </div>
+        <div class="right-card">
+          <div class="r-icon">🚫</div>
+          <div class="r-title">Droit d'opposition</div>
+          <div class="r-desc">Opposez-vous à certains traitements de vos données personnelles.</div>
+        </div>
+        <div class="right-card">
+          <div class="r-icon">⏸️</div>
+          <div class="r-title">Limitation</div>
+          <div class="r-desc">Demandez la limitation du traitement de vos données dans certains cas.</div>
+        </div>
+      </div>
+      <div class="highlight info" style="margin-top:16px">
+        <div class="h-icon">📧</div>
+        <div class="h-text">Pour exercer vos droits, contactez-nous à <strong>contact@braquelapps.com</strong>. Nous répondons sous <strong>72 heures</strong> et traitons les demandes sous 30 jours maximum.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ 8. CONSERVATION ══ -->
+  <div class="section" id="conservation">
+    <div class="section-header">
+      <div class="section-icon" style="background:#FFF7ED">⏱️</div>
+      <div>
+        <h2>8. Conservation des données</h2>
+        <p>Combien de temps conservons-nous vos données</p>
+      </div>
+    </div>
+    <div class="section-body">
+      <ul class="data-list">
+        <li>
+          <div class="dot" style="background:#FF9500"></div>
+          <div><strong>Compte actif</strong> — <span>Données conservées tant que votre compte est actif</span></div>
+        </li>
+        <li>
+          <div class="dot" style="background:#FF9500"></div>
+          <div><strong>Après suppression du compte</strong> — <span>Suppression complète sous 30 jours</span></div>
+        </li>
+        <li>
+          <div class="dot" style="background:#FF9500"></div>
+          <div><strong>Logs techniques</strong> — <span>Conservés 90 jours maximum pour la sécurité</span></div>
+        </li>
+        <li>
+          <div class="dot" style="background:#FF9500"></div>
+          <div><strong>Données IA (Kelly)</strong> — <span>Non stockées — les requêtes Gemini ne sont pas conservées par BraquelApps</span></div>
+        </li>
+        <li>
+          <div class="dot" style="background:#FF9500"></div>
+          <div><strong>Abonnement expiré</strong> — <span>Données conservées 1 an après expiration pour permettre la réactivation</span></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- ══ CONTACT ══ -->
+  <div class="contact-card" id="contact">
+    <h3>📬 Une question sur vos données ?</h3>
+    <p>Notre équipe répond sous 72 heures. Nous prenons chaque demande au sérieux.</p>
+    <a href="mailto:contact@braquelapps.com">✉️ contact@braquelapps.com</a>
+  </div>
+
+  <!-- ══ FOOTER ══ -->
   <footer>
-    <p>© 2026 BraquelApps — FamilleApp</p>
-    <p style="margin-top:8px;">
-      <a href="https://brunofrsilva-lab.github.io/familleapp-privacy/delete.html">Supprimer mon compte</a>
-    </p>
+    <div class="swiss">🇨🇭</div>
+    <p><strong>BraquelApps</strong> — Made in Switzerland</p>
+    <p>FamilleApp · Politique de Confidentialité v2.0 · Juin 2026</p>
+    <p style="margin-top:8px">Droit applicable : Droit suisse (LPD) et RGPD européen</p>
+    <p style="margin-top:4px; color:#D1D5DB">© 2026 BraquelApps. Tous droits réservés.</p>
   </footer>
 
 </div>
