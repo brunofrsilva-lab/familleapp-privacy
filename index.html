@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FamilleApp — L'agenda familial connecté</title>
+  <meta name="description" content="FamilleApp organise votre famille au quotidien : agenda partagé, courses, Kelly IA et notifications de trajets. Essai gratuit 15 jours.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #FAF7F0;
+      --ink: #1A1510;
+      --accent: #C4703F;
+      --accent-light: #F0E8DE;
+      --muted: #6B5E52;
+      --white: #FFFFFF;
+      --border: #E8E0D5;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: rgba(250, 247, 240, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .nav-logo span { color: var(--accent); }
+
+    .nav-cta {
+      background: var(--accent);
+      color: var(--white);
+      padding: 0.5rem 1.25rem;
+      border-radius: 100px;
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 600;
+      transition: opacity 0.2s;
+    }
+
+    .nav-cta:hover { opacity: 0.85; }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 8rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(196, 112, 63, 0.12) 0%, transparent 70%);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--accent-light);
+      color: var(--accent);
+      padding: 0.375rem 1rem;
+      border-radius: 100px;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      letter-spacing: 0.02em;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      font-weight: 900;
+      line-height: 1.1;
+      max-width: 14ch;
+      margin: 0 auto 1.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero h1 em {
+      font-style: normal;
+      color: var(--accent);
+      position: relative;
+    }
+
+    .hero p {
+      font-size: clamp(1rem, 2vw, 1.25rem);
+      color: var(--muted);
+      max-width: 42ch;
+      margin: 0 auto 2.5rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--ink);
+      color: var(--white);
+      padding: 0.875rem 2rem;
+      border-radius: 100px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+
+    .btn-primary:hover { transform: translateY(-2px); opacity: 0.9; }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--ink);
+      padding: 0.875rem 2rem;
+      border-radius: 100px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      border: 1.5px solid var(--border);
+      transition: border-color 0.2s;
+    }
+
+    .btn-secondary:hover { border-color: var(--ink); }
+
+    .hero-proof {
+      margin-top: 3rem;
+      font-size: 0.8125rem;
+      color: var(--muted);
+    }
+
+    /* PHONE MOCKUP */
+    .mockup-section {
+      padding: 2rem 2rem 6rem;
+      display: flex;
+      justify-content: center;
+    }
+
+    .phone {
+      width: 260px;
+      height: 520px;
+      background: var(--ink);
+      border-radius: 36px;
+      padding: 12px;
+      box-shadow: 0 40px 80px rgba(26, 21, 16, 0.25), 0 0 0 1px rgba(255,255,255,0.08) inset;
+      position: relative;
+    }
+
+    .phone-screen {
+      width: 100%;
+      height: 100%;
+      background: var(--cream);
+      border-radius: 26px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .phone-header {
+      background: var(--white);
+      padding: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .phone-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .phone-subtitle { font-size: 0.625rem; color: var(--muted); }
+
+    .phone-body { padding: 0.75rem; flex: 1; }
+
+    .phone-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 0.75rem;
+      margin-bottom: 0.5rem;
+      border: 1px solid var(--border);
+    }
+
+    .phone-card-label {
+      font-size: 0.55rem;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.25rem;
+    }
+
+    .phone-card-item {
+      font-size: 0.625rem;
+      color: var(--ink);
+      padding: 0.25rem 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 0.375rem;
+    }
+
+    .phone-card-item:last-child { border-bottom: none; }
+
+    .phone-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .phone-kelly {
+      background: linear-gradient(135deg, #1A1510, #3D2E22);
+      border-radius: 12px;
+      padding: 0.75rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .phone-kelly-label {
+      font-size: 0.55rem;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 0.375rem;
+    }
+
+    .phone-kelly-msg {
+      background: rgba(255,255,255,0.1);
+      border-radius: 8px;
+      padding: 0.375rem 0.5rem;
+      font-size: 0.55rem;
+      color: rgba(255,255,255,0.9);
+      line-height: 1.4;
+    }
+
+    .phone-nav {
+      display: flex;
+      justify-content: space-around;
+      padding: 0.5rem;
+      background: var(--white);
+      border-top: 1px solid var(--border);
+    }
+
+    .phone-nav-item {
+      font-size: 0.5rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    .phone-nav-item.active { color: var(--accent); }
+
+    /* FEATURES */
+    .features {
+      padding: 6rem 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-size: 0.8125rem;
+      font-weight: 600;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.75rem, 4vw, 2.75rem);
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 4rem;
+      max-width: 20ch;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .feature-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(26, 21, 16, 0.08);
+    }
+
+    .feature-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    .feature-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-card p {
+      font-size: 0.9375rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* KELLY SECTION */
+    .kelly-section {
+      background: var(--ink);
+      color: var(--white);
+      padding: 6rem 2rem;
+      text-align: center;
+    }
+
+    .kelly-section .section-label { color: var(--accent); }
+
+    .kelly-section .section-title { color: var(--white); }
+
+    .kelly-chat {
+      max-width: 480px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .kelly-bubble {
+      background: rgba(255,255,255,0.08);
+      border-radius: 16px 16px 16px 4px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 0.75rem;
+      font-size: 0.9375rem;
+      line-height: 1.5;
+      color: rgba(255,255,255,0.9);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .user-bubble {
+      background: var(--accent);
+      border-radius: 16px 16px 4px 16px;
+      padding: 1rem 1.25rem;
+      margin-bottom: 0.75rem;
+      margin-left: auto;
+      max-width: 80%;
+      font-size: 0.9375rem;
+      color: var(--white);
+    }
+
+    .kelly-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 100px;
+      padding: 0.375rem 1rem;
+      font-size: 0.8125rem;
+      color: rgba(255,255,255,0.7);
+      margin-top: 2rem;
+    }
+
+    /* PRICING */
+    .pricing {
+      padding: 6rem 2rem;
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .price-card {
+      background: var(--white);
+      border: 2px solid var(--ink);
+      border-radius: 24px;
+      padding: 3rem 2.5rem;
+      position: relative;
+    }
+
+    .price-tag {
+      position: absolute;
+      top: -1px; right: 2rem;
+      background: var(--accent);
+      color: var(--white);
+      padding: 0.375rem 1rem;
+      border-radius: 0 0 12px 12px;
+      font-size: 0.8125rem;
+      font-weight: 600;
+    }
+
+    .price-amount {
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      font-weight: 900;
+      line-height: 1;
+      margin: 1rem 0 0.25rem;
+    }
+
+    .price-amount sup {
+      font-size: 1.5rem;
+      vertical-align: super;
+    }
+
+    .price-period {
+      color: var(--muted);
+      font-size: 0.9375rem;
+      margin-bottom: 2rem;
+    }
+
+    .price-features {
+      list-style: none;
+      text-align: left;
+      margin-bottom: 2rem;
+    }
+
+    .price-features li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9375rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .price-features li:last-child { border-bottom: none; }
+
+    .check { color: var(--accent); font-size: 1rem; }
+
+    .trial-note {
+      margin-top: 1.5rem;
+      font-size: 0.875rem;
+      color: var(--muted);
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--ink);
+      color: rgba(255,255,255,0.6);
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+
+    .footer-logo span { color: var(--accent); }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 1.5rem 0;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      font-size: 0.875rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--white); }
+
+    .footer-made {
+      font-size: 0.8125rem;
+      margin-top: 1.5rem;
+    }
+
+    /* DIVIDER */
+    .divider {
+      width: 48px;
+      height: 2px;
+      background: var(--accent);
+      margin: 0 auto 2rem;
+    }
+
+    @media (max-width: 640px) {
+      nav { padding: 1rem; }
+      .hero { padding: 7rem 1.5rem 3rem; }
+      .features { padding: 4rem 1.5rem; }
+      .pricing { padding: 4rem 1.5rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">Famille<span>App</span></a>
+    <a href="https://play.google.com/store/apps/details?id=com.braquelapps.familleapp" class="nav-cta">
+      Télécharger
+    </a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-badge">✨ Disponible sur Android</div>
+    <h1>La famille organisée, <em>enfin</em></h1>
+    <p>Agenda partagé, courses collaboratives, Kelly IA et notifications de trajets. Tout ce dont votre famille a besoin, dans une seule app.</p>
+    <div class="hero-actions">
+      <a href="https://play.google.com/store/apps/details?id=com.braquelapps.familleapp" class="btn-primary">
+        📱 Télécharger sur Google Play
+      </a>
+      <a href="#features" class="btn-secondary">Découvrir →</a>
+    </div>
+    <p class="hero-proof">Essai gratuit 15 jours · Sans carte bancaire</p>
+  </section>
+
+  <!-- PHONE MOCKUP -->
+  <div class="mockup-section">
+    <div class="phone">
+      <div class="phone-screen">
+        <div class="phone-header">
+          <div class="phone-title">FamilleApp</div>
+          <div class="phone-subtitle">Bonjour, Bruno 👋</div>
+        </div>
+        <div class="phone-body">
+          <div class="phone-card">
+            <div class="phone-card-label">📅 Agenda cette semaine</div>
+            <div class="phone-card-item"><span class="phone-dot"></span>Dentiste — Raquel, Lundi</div>
+            <div class="phone-card-item"><span class="phone-dot"></span>Sport — Théo, Mercredi</div>
+            <div class="phone-card-item"><span class="phone-dot"></span>Réunion école, Vendredi</div>
+          </div>
+          <div class="phone-kelly">
+            <div class="phone-kelly-label">✨ Kelly IA</div>
+            <div class="phone-kelly-msg">Raquel a dentiste lundi à 14h et Théo du sport mercredi. Pensez à préparer l'équipement ce soir ! 😊</div>
+          </div>
+          <div class="phone-card">
+            <div class="phone-card-label">🛒 Courses</div>
+            <div class="phone-card-item"><span class="phone-dot"></span>Lait, pain, fromage</div>
+            <div class="phone-card-item"><span class="phone-dot"></span>Fruits de saison</div>
+          </div>
+        </div>
+        <div class="phone-nav">
+          <div class="phone-nav-item active">🏠<br>Accueil</div>
+          <div class="phone-nav-item">📅<br>Agenda</div>
+          <div class="phone-nav-item">✨<br>Kelly</div>
+          <div class="phone-nav-item">📋<br>Quotidien</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FEATURES -->
+  <section class="features" id="features">
+    <div class="section-label">Fonctionnalités</div>
+    <div class="divider"></div>
+    <h2 class="section-title">Tout ce dont votre famille a besoin</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <span class="feature-icon">📅</span>
+        <h3>Agenda familial</h3>
+        <p>Partagez les rendez-vous, activités et événements avec toute la famille en temps réel.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🛒</span>
+        <h3>Courses collaboratives</h3>
+        <p>Ajoutez des articles depuis n'importe où. Toute la famille voit la liste mise à jour instantanément.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">✨</span>
+        <h3>Kelly IA</h3>
+        <p>Votre assistante familiale propulsée par Gemini AI. Analyse la semaine, suggère des repas, répond à vos questions. Sans configuration.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">📍</span>
+        <h3>Trajets & notifications</h3>
+        <p>Soyez notifié quand un membre de la famille part ou arrive à la maison. Tranquillité d'esprit garantie.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">📋</span>
+        <h3>Quotidien</h3>
+        <p>Tâches, routines et récompenses pour garder toute la famille organisée au jour le jour.</p>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🐾</span>
+        <h3>Animaux de compagnie</h3>
+        <p>Suivez les soins, vaccins et rendez-vous vétérinaires de vos animaux directement dans l'app.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- KELLY SECTION -->
+  <section class="kelly-section">
+    <div class="section-label">Kelly IA</div>
+    <div class="divider"></div>
+    <h2 class="section-title" style="color:white;">Votre assistante familiale intelligente</h2>
+    <div class="kelly-chat">
+      <div class="user-bubble">Qu'est-ce qu'on mange cette semaine ?</div>
+      <div class="kelly-bubble">✨ Bonjour ! Voici une suggestion pour la semaine de votre famille : lundi pasta pour Théo après son sport, mercredi raclette puisque Raquel l'adore, et vendredi pizza maison pour tout le monde ! Je peux ajouter les ingrédients à vos courses 🛒</div>
+      <div class="user-bubble">Ajoute le fromage à gratin</div>
+      <div class="kelly-bubble">✅ Fromage à gratin ajouté à vos courses ! Vous avez maintenant 6 articles dans votre liste.</div>
+    </div>
+    <div class="kelly-badge">
+      🇨🇭 Made in Switzerland by BraquelApps · Propulsé par Google Gemini
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing" id="pricing">
+    <div class="section-label">Tarif</div>
+    <div class="divider"></div>
+    <h2 class="section-title">Simple et transparent</h2>
+    <div class="price-card">
+      <div class="price-tag">🎉 Essai gratuit 15 jours</div>
+      <p style="color:var(--muted);font-size:0.9375rem;">Accès complet à toutes les fonctionnalités</p>
+      <div class="price-amount"><sup>CHF</sup>17<sup>.99</sup></div>
+      <p class="price-period">par an · pour toute la famille</p>
+      <ul class="price-features">
+        <li><span class="check">✓</span> Membres illimités</li>
+        <li><span class="check">✓</span> Agenda, courses, quotidien</li>
+        <li><span class="check">✓</span> Kelly IA incluse</li>
+        <li><span class="check">✓</span> Notifications de trajets</li>
+        <li><span class="check">✓</span> Animaux de compagnie</li>
+        <li><span class="check">✓</span> Données privées, jamais partagées</li>
+      </ul>
+      <a href="https://play.google.com/store/apps/details?id=com.braquelapps.familleapp" class="btn-primary" style="width:100%;justify-content:center;">
+        Commencer l'essai gratuit
+      </a>
+      <p class="trial-note">Moins de 1.50 CHF par mois · Annulez à tout moment</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Famille<span>App</span></div>
+    <p style="font-size:0.9375rem;">L'agenda familial connecté</p>
+    <div class="footer-links">
+      <a href="https://brunofrsilva-lab.github.io/familleapp-privacy/privacy-policy.html">Politique de confidentialité</a>
+      <a href="https://brunofrsilva-lab.github.io/familleapp-privacy/delete.html">Supprimer mes données</a>
+      <a href="mailto:contact@braquelapps.com">Contact</a>
+    </div>
+    <p class="footer-made">🇨🇭 Made in Switzerland by BraquelApps</p>
+  </footer>
+
+</body>
+</html>
